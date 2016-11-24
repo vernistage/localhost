@@ -22,5 +22,5 @@ test:
 
   <<: *default
   database: localhost_production
-  username: localhost
-  password: <%= ENV['LOCALHOST_DATABASE_PASSWORD'] %>
+  # username: localhost
+  # password: <%= ENV['LOCALHOST_DATABASE_PASSWORD'] %>
