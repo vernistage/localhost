@@ -20,17 +20,17 @@ describe Category do
   }) }
 
   describe "category attributes" do
-    it "#title" do
+    it "category has a title" do
       expect(category.title).to eq "Test"
     end
 
-    it "#description" do
+    it "category has a description" do
       expect(category.description).to eq "testing the description."
     end
   end
 
   describe "user category join table attributes" do
-    it "#host_id" do
+    it "category has a host_id" do
       expect(uc.host_id).to eq host.id
     end
 
