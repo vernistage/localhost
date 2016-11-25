@@ -2,7 +2,6 @@
 	<div class="dropdown dropdown-lg">
 		<%= form_tag("/search", method: "get", class: "form-control") do %>
 			<%= search_field(:user, :homebase) %>
-			<%= submit_tag(class: "glyphicon glyphicon-search") %>
 			<%= collection_select(:category, :host_id, Category.all, :title, class: "btn btn-default dropdown-toggle") %>
 		<% end %>
 	</div>
