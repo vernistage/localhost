@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe User do
-  let(:host) { User.new({
+  let(:host) { User.create!({
     name: "Host",
     email: "host@host.com",
     password: "password",
@@ -9,7 +9,7 @@ describe User do
     host: true
     }) }
 
-  let(:guest) { User.new({
+  let(:guest) { User.create!({
     name: "Guest",
     email: "guest@guest.com",
     password: "password",
@@ -34,7 +34,7 @@ describe User do
       expect(host.homebase).to eq "hosthome"
     end
 
-    it "host has a homebase" do
+    it "host is a host" do
       expect(host.host).to be true
     end
   end
