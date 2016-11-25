@@ -21,7 +21,9 @@ ___
     - If there are any errors/items to be addressed, tag the author of the pull request with a message on what to correct
     - Otherwise, leave a comment with your name to mark your review as complete
 2. If you are the second person to mark a pull request as complete, you can merge the pull request with master.
+
 ___
+
 ### MVP for Monday
 1. Routing and Views for all pages
 2. Functionality
