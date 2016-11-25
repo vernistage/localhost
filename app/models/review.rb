@@ -3,6 +3,6 @@ class Review < ApplicationRecord
 	delegate :guest, :to => :booking, :allow_nil => true
 	delegate :host,  :to => :booking, :allow_nil => true
 
-	validates: :booking_id, presence: :true, uniqueness: true
-	validates: :body, :rating, presence: :true
+	validates :booking_id, presence: :true, uniqueness: true
+	validates :body, :rating, presence: :true
 end

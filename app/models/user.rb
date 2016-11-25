@@ -14,4 +14,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+   validate :max_categories
+
+  private
+
+  def max_categories
+    categories.length <= 3
+  end
+
 end
