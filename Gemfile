@@ -19,7 +19,6 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'pry'
 gem 'json'
 gem 'devise'
 gem 'paperclip'
@@ -28,13 +27,11 @@ gem 'ratyrate'
 
 
 
-
-
-
-
-
-
 group :development, :test do
+  gem 'rspec-rails'
+  gem 'capybara', "~> 2.5"
+  gem 'launchy'
+  gem 'pry'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'dotenv-rails'
