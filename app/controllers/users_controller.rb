@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	layout "hosts"
+
 
   def index
     @category = Category.find(params[:category])
