@@ -1,3 +1,4 @@
+
 host1 = User.create(email: "host1@host1.com", password: "password", name: "host1", homebase: "Austin", host: true)
 host2 = User.create(email: "host2@host2.com", password: "password", name: "host2", homebase: "Austin", host: true)
 host3 = User.create(email: "host3@host3.com", password: "password", name: "host3", homebase: "Austin", host: true)
@@ -62,6 +63,7 @@ guest29 = User.create(email: "guest29@guest29.com", password: "password", name: 
 guest30 = User.create(email: "guest30@guest30.com", password: "password", name: "guest30", homebase: "Los Angeles", host: false)
 
 
+
 Category.create(title: "Art", description: "Local art tours")
 Category.create(title: "Music", description: "Music around town")
 Category.create(title: "Food & Drink", description: "Grab a bite or a pint")
@@ -72,11 +74,13 @@ Category.create(title: "Events", description: "Events around town")
 Category.create(title: "Sports", description: "Root for the home team")
 Category.create(title: "History", description: "Pay homage to the past")
 
+
 #host 1 cats: art and food
 UserCategory.create(host_id: 1, category_id: 1)
 UserCategory.create(host_id: 1, category_id: 3)
 Tag.create(specialty: "Ancient Greek", category_id: 1)
 Tag.create(specialty: "Dive bars", category_id: 3)
+
 
 UserCategory.create(host_id: 6, category_id: 1)
 UserCategory.create(host_id: 6, category_id: 3)
@@ -112,4 +116,4 @@ Tag.create(specialty: "Texas history", category_id: 9)
 UserCategory.create(host_id: 5, category_id: 2)
 UserCategory.create(host_id: 5, category_id: 4)
 Tag.create(specialty: "Hip Hop", category_id: 2)
-Tag.create(specialty: "Rainey St.", category_id: 4)# This file should contain all the record creation needed to seed the database with its default values.
+Tag.create(specialty: "Rainey St.", category_id: 4)# This file should contain
