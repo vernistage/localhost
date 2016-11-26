@@ -1,11 +1,12 @@
 
 <!-- Each link should have the host :location as a dependency -->
- <div class="container-fluid">\
-  <% @categories.each do |category| %>
-    <div class="col-md-4">
-      <div class="category-box">
-        <%= link_to category.title, users_path(:category => category.id )%>
-      </div>
-   </div>
-  <% end %>
-</div>
+<% @categories.each do |category| %>
+  <h3><%= link_to category.title, category_path(category) %></h3>
+<% end %>
+
+
+
+
+
+
+
