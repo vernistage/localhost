@@ -1,10 +1,22 @@
 <ul>
 	<% @users.each do |user| %>
-		<% if user.categories.include?(@category) %>
+		<% tracking = [] %>
+		<% if user.categories.include?(@category) 
+			tracking_arr << user %>
 		<li>
 			<%= user.name %>
 			<p><%= user.homebase %></p>
 		</li>
+		<% binding.pry %>
+			<% if tracking.length < 1 %>
+				<p>We're sorry, no hosts yet exist in this city for that specialty.</p>
+			<% end %>
 		<% end %>
 	<% end %>
 </ul>
+
+<% if @users.length < 1 %>
+	<p>
+		We're sorry, no hosts yet exist in <%= @location %> for <%= @category.title.downcase %>.
+	</p>
+<% end %>
