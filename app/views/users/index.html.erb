@@ -9,7 +9,9 @@
 		</li>
 		<% binding.pry %>
 			<% if tracking.length < 1 %>
-				<p>We're sorry, no hosts yet exist in this city for that specialty.</p>
+				<p>
+					We're sorry, no hosts yet exist in <%= @location %> for <%= @category.title.downcase %>.
+				</p>
 			<% end %>
 		<% end %>
 	<% end %>
