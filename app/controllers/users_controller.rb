@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
+	layout "hosts"
 
   def index
     @category = Category.find(params[:category])
-    @users = User.where(homebase: session[:location])
+    @location = session[:location]
+    @users = User.where(homebase: @location)
   end
 
 end

@@ -1,0 +1,10 @@
+<ul>
+	<% @users.each do |user| %>
+		<% if user.categories.include?(@category) %>
+		<li>
+			<%= user.name %>
+			<p><%= user.homebase %></p>
+		</li>
+		<% end %>
+	<% end %>
+</ul>
