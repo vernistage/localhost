@@ -1,4 +1,4 @@
-<% binding.pry %>
+
 <h2><%= @user.name %></h2>
 <h3><%= @user.homebase %></h3>
 
@@ -26,7 +26,7 @@
   <% end %>
 
 <% else %>
-  become a host link
+  <%= link_to "Become A Host", become_host_path %>
 
   <h4>Your Trips</h4>
   <% if @user.guest_bookings.blank? %>

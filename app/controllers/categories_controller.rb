@@ -6,7 +6,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    category = Category.find(params[:id])
+    @category = Category.find(params[:id])
     hosts_by_location = User.where(homebase: session[:location])
     @filtered_users = []
     hosts_by_location.each do |host|
@@ -14,9 +14,6 @@ class CategoriesController < ApplicationController
         @filtered_users << host
       end
     end
-    binding.pry
-    # @location = session[:location]
-    # @users = User.where(homebase: @location)
     @error = "We're sorry, no hosts yet exist in #{@location} for #{@category}."
   end
 
