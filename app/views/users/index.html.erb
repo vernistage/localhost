@@ -9,7 +9,7 @@
 		</li>
 			<% if tracking.length < 1 %>
 				<p>
-					We're sorry, no hosts yet exist in <%= @location %> for <%= @category.title.downcase %>.
+					<%= @error %>
 				</p>
 			<% end %>
 		<% end %>
@@ -18,6 +18,6 @@
 
 <% if @users.length < 1 %>
 	<p>
-		We're sorry, no hosts yet exist in <%= @location %> for <%= @category.title.downcase %>.
+		<%= @error %>
 	</p>
 <% end %>
