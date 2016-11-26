@@ -1,73 +1,11 @@
 
-<!-- Each link should have the host location as a dependency -->
- <div class="container-fluid">
-  <div class="row">
-   <div class="col-md-4">
-    <div class="category-box">
-      All
-    </div>
+<!-- Each link should have the host :location as a dependency -->
+ <div class="container-fluid">\
+  <% @categories.each do |category| %>
+    <div class="col-md-4">
+      <div class="category-box">
+        <%= link_to category.title, users_path(:category => category.id )%>
+      </div>
    </div>
-   <div class="col-md-4">
-    <div class="category-box">
-      <%= @categories[0].title %>
-    </div>
-   </div>
-   <div class="col-md-4">
-    <div class="category-box">
-      <%= @categories[1].title %>
-    </div>
-   </div>
-  </div>
-  <div class="row">
-   <div class="col-md-4">
-    <div class="category-box">
-      <%= @categories[2].title %>
-    </div>
-   </div>
-   <div class="col-md-4">
-    <div class="category-box">
-      <%= @categories[3].title %>
-    </div>
-    </div>
-   <div class="col-md-4">
-    <div class="category-box">
-      <%= @categories[4].title %>
-    </div>
-   </div>
-  </div>
-  <div class="row">
-   <div class="col-md-4">
-    <div class="category-box">
-      <%= @categories[5].title %>
-    </div>
-   </div>
-   <div class="col-md-4">
-    <div class="category-box">
-      <%= @categories[6].title %>
-    </div>
-   </div>
-   <div class="col-md-4">
-    <div class="category-box">
-      <%= @categories[7].title %>
-    </div>
-   </div>
-  </div>
-  <div class="row">
-   <div class="col-md-4">
-    <div class="category-box">
-      <%= @categories[8].title %>
-    </div>
-   </div>
-   <div class="col-md-4">
-    <div class="category-box">
-      <%= @categories[9].title %>
-    </div>
-   </div>
-   <div class="col-md-4">
-    <div class="category-box">
-      <%= @categories[10].title %>
-    </div>
-   </div>
-  </div>
+  <% end %>
 </div>
-
