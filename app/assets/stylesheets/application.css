@@ -11,7 +11,14 @@
  * It is generally better to create a new file per style scope.
  *
  *= require bootstrap.min
+ *= require font-awesome
  *= require_tree .
  *= require_self
  */
 /*"bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"*/
+.category-box{
+  width: 250;
+  height: 250;
+  border: 2px solid black;
+  background-color: grey;
+}
