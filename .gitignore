@@ -12,6 +12,7 @@
 # Ignore all logfiles and tempfiles.
   /log/*.log
   /tmp
+  /tmp/cache/assets
 
 # Used by dotenv library to load environment variables.
   .env
