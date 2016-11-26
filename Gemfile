@@ -24,7 +24,8 @@ gem 'devise'
 gem 'paperclip'
 gem 'ratyrate'
 # brew install imagemagick
-
+# for our icons
+gem "font-awesome-rails"
 
 
 group :development, :test do
