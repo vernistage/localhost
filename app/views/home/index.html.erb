@@ -1,11 +1,11 @@
 <div class="input-group" id="city-search">
-  <div class="dropdown dropdown-lg">
-    <%= form_tag("/categories", method: "get", class: "form-control") do %>
-      <!--  If we want to search -->
-      <%= select_tag(:location, options_for_select([["Austin", 'Austin'], ["Chicago", 'Chicago'], ["Los Angeles", 'Los Angeles'], ["New York", 'New York'], ["Seattle", 'Seattle']])) %>
-      <!--  If we want default drop down -->
-      <%= fa_icon("search") %>
-      <%= submit_tag("Submit") %>
-    <% end %>
-  </div>
+	<div class="dropdown dropdown-lg">
+		<%= form_tag("/categories", method: "get", class: "form-control") do %>
+
+			<%= select_tag(:location, options_for_select([["Austin", 1], ["Chicago", 2], ["Los Angeles", 3], ["New York", 4], ["Seattle", 5]])) %>
+
+			<%= fa_icon("search") %>
+			<%= submit_tag("Submit") %>
+		<% end %>
+	</div>
 <div>
