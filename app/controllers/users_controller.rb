@@ -5,4 +5,8 @@ class UsersController < ApplicationController
     @users = User.where(homebase: session[:location])
   end
 
+  def show
+    @user = User.find(params[:id])
+  end
+
 end
