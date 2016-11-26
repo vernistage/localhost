@@ -1,0 +1,23 @@
+<ul>
+	<% @users.each do |user| %>
+		<% tracking = [] %>
+		<% if user.categories.include?(@category) 
+			tracking_arr << user %>
+		<li>
+			<%= user.name %>
+			<p><%= user.homebase %></p>
+		</li>
+			<% if tracking.length < 1 %>
+				<p>
+					<%= @error %>
+				</p>
+			<% end %>
+		<% end %>
+	<% end %>
+</ul>
+
+<% if @users.length < 1 %>
+	<p>
+		<%= @error %>
+	</p>
+<% end %>
