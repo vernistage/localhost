@@ -1,4 +1,3 @@
-
 host1 = User.create(email: "host1@host1.com", password: "password", name: "host1", homebase: "Austin", host: true)
 host2 = User.create(email: "host2@host2.com", password: "password", name: "host2", homebase: "Austin", host: true)
 host3 = User.create(email: "host3@host3.com", password: "password", name: "host3", homebase: "Austin", host: true)
@@ -34,15 +33,15 @@ guest30 = User.create(email: "guest30@guest30.com", password: "password", name: 
 
 
 
-Category.create(title: "Art", description: "Local art tours") #category_id = 1
-Category.create(title: "Music", description: "Music around town") #category_id = 2
-Category.create(title: "Food & Drink", description: "Grab a bite or a pint") #category_id = 3
-Category.create(title: "Nightlife", description: "Take a night out on the town") #category_id = 4
-Category.create(title: "Fashion", description: "Hit the best shopping spots in the city") #category_id = 5
-Category.create(title: "Outdoors", description: "Get some fresh air") #category_id = 6
-Category.create(title: "Events", description: "Events around town") #category_id = 7
-Category.create(title: "Sports", description: "Root for the home team") #category_id = 8
-Category.create(title: "History", description: "Pay homage to the past") #category_id = 9
+Category.create(title: "Art", description: "Local art tours", image: "/images/art.jpg") #category_id = 1
+Category.create(title: "Music", description: "Music around town", image: "/images/music.jpg") #category_id = 2
+Category.create(title: "Food & Drink", description: "Grab a bite or a pint", image: "/images/food.jpg") #category_id = 3
+Category.create(title: "Nightlife", description: "Take a night out on the town", image: "/images/nightlife.jpg") #category_id = 4
+Category.create(title: "Fashion", description: "Hit the best shopping spots in the city", image: "/images/fashion.jpg") #category_id = 5
+Category.create(title: "Outdoors", description: "Get some fresh air", image: "/images/outdoors.jpg") #category_id = 6
+Category.create(title: "Events", description: "Events around town", image: "/images/events.jpg") #category_id = 7
+Category.create(title: "Sports", description: "Root for the home team", image: "/images/sports.jpg") #category_id = 8
+Category.create(title: "History", description: "Pay homage to the past", image: "/images/history.jpg") #category_id = 9
 
 
 #City 1 Austin
@@ -52,7 +51,7 @@ Category.create(title: "History", description: "Pay homage to the past") #catego
     UserCategory.create(host_id: 1, category_id: 5) #user_category_id = 3
     Tag.create(specialty: "Ancient Greek", category_id: 9) #tag_id = 1
     Tag.create(specialty: "All you can Greek buffet", category_id: 3) #tag_id = 2
-    Tag.create(specialty: "Greek Vogue") #tag_id = 3
+    Tag.create(specialty: "Greek Vogue", category_id: 5) #tag_id = 3
     UserTag.create(host_id: 1, tag_id: 1)
     UserTag.create(host_id: 1, tag_id: 2)
     UserTag.create(host_id: 1, tag_id: 3)
@@ -108,20 +107,11 @@ Category.create(title: "History", description: "Pay homage to the past") #catego
     UserTag.create(host_id: 5, tag_id: 20)
   #Host 6
     UserCategory.create(host_id: 6, category_id: 2) #user_category_id = 13
-    UserCategory.create(host_id: 6, category_id: 3) #user_category_id = 14
-    UserCategory.create(host_id: 6, category_id: 4) #user_category_id =15
-    Tag.create(specialty: "Psychedelic Rock", category_id: 3) #tag_id = 21
+    UserCategory.create(host_id: 6, category_id: 4) #user_category_id =14
+    Tag.create(specialty: "Psychedelic Rock", category_id: 2) #tag_id = 21
     UserTag.create(host_id: 6, tag_id: 19)
     UserTag.create(host_id: 6, tag_id: 20)
     UserTag.create(host_id: 6, tag_id: 9)
     UserTag.create(host_id: 6, tag_id: 21)
     UserTag.create(host_id: 6, tag_id: 13)
     UserTag.create(host_id: 6, tag_id: 11)
-
-
-
-
-
-
-
-

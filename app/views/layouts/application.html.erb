@@ -12,12 +12,20 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <div class="container">
-      <%= link_to "Home", root_path %>
-      <% if !user_signed_in? %>
-        <p><%= link_to "Register", new_user_registration_path %> <%= link_to "Login", new_user_session_path %></p>
-      <% else %>
-        <p><%= "Hello, "%> <%= link_to "Logout", destroy_user_session_path, :method => 'delete' %></p>
-      <% end %>
+
+
+      <ul class="nav nav-pills">
+        <li role="presentation" class="active"><%= link_to "Home", root_path %></li>
+
+        <% if !user_signed_in? %>
+          <li role="presentation" class="pull-right"><%= link_to "Register", new_user_registration_path %></li>
+          <li role="presentation" class="pull-right"><%= link_to "Log in", new_user_session_path %></li>
+        <% else %>
+          <li role="presentation" class="pull-right"><%= link_to current_user.name, users_show_path(current_user) %></li>
+          <li role="presentation" class="pull-right"><%= link_to "Log out", destroy_user_session_path, :method => 'delete' %></li>
+
+        <% end %>
+      </ul>
 
       <%= yield %>
     </div>
