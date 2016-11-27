@@ -1,4 +1,9 @@
 <div class='review-view'>
-  <p id='body'><%= @review.body %></p>
-  <p id='name'><%= @review.guest, @review.rating %>
+  <h4>Review for <%= @review.host.name %> </h4>
+  <p><%= @review.body %></p>
+  <p align="right"><small>
+    <em><%= Time.at(@review.created_at).strftime("%B %e, %Y") %>, <%= @review.guest.name %>
+    </em>
+    , Rating: <%= @review.rating %>
+  </small></p>
 </div>
