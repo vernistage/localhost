@@ -14,7 +14,7 @@ class CategoriesController < ApplicationController
         @filtered_users << host
       end
     end
-    @error = "We're sorry, no hosts yet exist in #{@location} for #{@category}."
+    @error = "We're sorry, no hosts yet exist in #{session[:location]} for #{@category.title.downcase}."
   end
 
 end
