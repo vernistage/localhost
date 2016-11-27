@@ -1,0 +1,11 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <h2><%= @user.name %></h2>
+    <h5><%= @user.homebase %></h5>
+    <% if current_user != @user %>
+      <h6><%= link_to "Contact #{@user.name}", users_show_path(@user)%></h6>
+
+    <% end %>
+    <p><%= @user.bio %></p>
+  </div>
+</div
