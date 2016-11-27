@@ -1,8 +1,18 @@
 
 <!-- Each link should have the host :location as a dependency -->
-<% @categories.each do |category| %>
-  <h3><%= link_to category.title, category_path(category) %></h3>
-<% end %>
+<div class="container-fluid">
+	<% @categories.each do |category| %>
+		<div class="category-box">
+			<%= link_to(category_path(category) ) do %>
+				<div style="background-image: url('<%=category.image%>'); background-position: center center; height: 200px; width: 500px;">
+						<div class="col-md-4">
+					  		<h2><%= category.title%></h2>
+					  	</div>
+				</div>
+			<% end %>
+		</div>
+	<% end %>
+</div>
 
 
 
