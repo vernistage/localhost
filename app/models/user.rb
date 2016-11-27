@@ -15,7 +15,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-   validate :max_categories
+  validates :name, :bio, :homebase, presence: true
+
+  validate :max_categories
 
   private
 

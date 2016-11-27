@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   post '/users/post_expertise' => 'users#post_expertise', :as => :post_expertise
   get '/bookings/request_booking' => 'bookings#request_booking', :as => :request_booking
   post '/bookings/post_booking' => 'bookings#post_booking', :as => :post_booking
+	post '/reviews/create' => 'reviews#create', :as => :create_review
   root to: "home#index"
 end
