@@ -11,6 +11,7 @@ class ReviewsController < ApplicationController
 	end
 
   def show
+    @review = Review.find(1)
     # @review = Review.find(num)
   end
 
