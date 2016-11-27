@@ -1,11 +1,10 @@
 <div class="input-group" id="city-search">
 	<div class="dropdown dropdown-lg">
 		<%= form_tag("/categories", method: "get", class: "form-control") do %>
-
 			<%= select_tag(:location, options_for_select([["Austin", 'Austin'], ["Chicago", 'Chicago'], ["Los Angeles", 'Los Angeles'], ["New York", 'New York'], ["Seattle", 'Seattle']])) %>
-
-			<%= fa_icon("search") %>
-			<%= submit_tag("Submit") %>
+			<button type='submit'>
+				<%= fa_icon("search") %>
+			</button>
 		<% end %>
 	</div>
 <div>
