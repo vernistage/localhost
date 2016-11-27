@@ -4,13 +4,16 @@
 
 <% if @user.host == true  %>
   <% if @user.categories.blank? %>
-    add your specialties
+    <%= link_to "Add your Expertise", add_expertise_path(@user)  %>
+
   <% end %>
     <% @user.categories.each do |category| %>
       <h4><%= category.title %></h4>
       <ul>
         <% @user.tags.each do |tag| %>
-          <li><%= tag.specialty %></li>
+          <% if tag.category_id == category.id  %>
+            <li><%= tag.specialty %></li>
+          <% end %>
         <% end %>
       </ul>
     <% end %>

@@ -10,4 +10,22 @@ class UsersController < ApplicationController
     redirect_to users_show_path(@current_user)
   end
 
+  def add_expertise
+    @user_category = UserCategory.new
+    @user_tag = UserTag.new
+  end
+
+  def post_expertise
+    UserCategory.find_or_create_by(host_id: current_user.id, category_id: params[:user_category][:category_id])
+    t = Tag.find_or_create_by(specialty: params[:specialty], category_id: params[:user_category][:category_id])
+    UserTag.find_or_create_by(host_id: current_user.id, tag_id: t.id)
+    redirect_to users_show_path(@current_user)
+  end
+
+  private
+
+
+    # def expertise_params
+    #   params.require(:user_category).permit(:host_id, :category_id)
+    # end
 end

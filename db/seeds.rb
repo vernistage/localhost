@@ -52,7 +52,7 @@ Category.create(title: "History", description: "Pay homage to the past") #catego
     UserCategory.create(host_id: 1, category_id: 5) #user_category_id = 3
     Tag.create(specialty: "Ancient Greek", category_id: 9) #tag_id = 1
     Tag.create(specialty: "All you can Greek buffet", category_id: 3) #tag_id = 2
-    Tag.create(specialty: "Greek Vogue") #tag_id = 3
+    Tag.create(specialty: "Greek Vogue", category_id: 5) #tag_id = 3
     UserTag.create(host_id: 1, tag_id: 1)
     UserTag.create(host_id: 1, tag_id: 2)
     UserTag.create(host_id: 1, tag_id: 3)
@@ -108,9 +108,8 @@ Category.create(title: "History", description: "Pay homage to the past") #catego
     UserTag.create(host_id: 5, tag_id: 20)
   #Host 6
     UserCategory.create(host_id: 6, category_id: 2) #user_category_id = 13
-    UserCategory.create(host_id: 6, category_id: 3) #user_category_id = 14
-    UserCategory.create(host_id: 6, category_id: 4) #user_category_id =15
-    Tag.create(specialty: "Psychedelic Rock", category_id: 3) #tag_id = 21
+    UserCategory.create(host_id: 6, category_id: 4) #user_category_id =14
+    Tag.create(specialty: "Psychedelic Rock", category_id: 2) #tag_id = 21
     UserTag.create(host_id: 6, tag_id: 19)
     UserTag.create(host_id: 6, tag_id: 20)
     UserTag.create(host_id: 6, tag_id: 9)

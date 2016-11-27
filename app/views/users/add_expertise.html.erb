@@ -1,0 +1,9 @@
+<%= form_tag(post_expertise_path) do %>
+  <%= label_tag 'category' %>
+  <%= collection_select :user_category, :category_id, Category.all, :id, :title %>
+  <%= label_tag 'expertise' %>
+  <%= text_field_tag :specialty %>
+  <%= submit_tag %>
+<% end %>
+
+
