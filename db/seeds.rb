@@ -7,15 +7,15 @@ host6 = User.create(email: "host6@host6.com", password: "password", name: "Host6
 test = User.create(email: "test@test.com", password: "password", name: "Test", homebase: "Austin")
 
 
-Category.create(title: "Art", description: "Local art tours")
-Category.create(title: "Music", description: "Music around town")
-Category.create(title: "Food & Drink", description: "Grab a bite or a pint")
-Category.create(title: "Nightlife", description: "Take a night out on the town")
-Category.create(title: "Fashion", description: "Hit the best shopping spots in the city")
-Category.create(title: "Outdoors", description: "Get some fresh air")
-Category.create(title: "Events", description: "Events around town")
-Category.create(title: "Sports", description: "Root for the home team")
-Category.create(title: "History", description: "")
+Category.create(title: "Art", description: "Local art tours", image: "/images/art.jpg")
+Category.create(title: "Music", description: "Music around town", image: "/images/music.jpg")
+Category.create(title: "Food & Drink", description: "Grab a bite or a pint", image: "/images/food.jpg")
+Category.create(title: "Nightlife", description: "Take a night out on the town", image: "/images/nightlife.jpg")
+Category.create(title: "Fashion", description: "Hit the best shopping spots in the city", image: "/images/fashion.jpg")
+Category.create(title: "Outdoors", description: "Get some fresh air", image: "/images/outdoors.jpg")
+Category.create(title: "Events", description: "Events around town", image: "/images/events.jpg")
+Category.create(title: "Sports", description: "Root for the home team", image: "/images/sports.jpg")
+Category.create(title: "History", description: "Dip into the past" image: "/images/")
 
 #host 1 cats: art and food
 UserCategory.create(host_id: 1, category_id: 1)
