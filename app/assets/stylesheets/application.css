@@ -84,6 +84,13 @@ ul.nav {
 }
 
 /*Semantic UI Overrides*/
+#registration-form{
+	position: fixed;
+	margin: auto;
+	margin-left: -200px;
+	margin-top: -400px;
+}
+
 .ui.text.container{
 	position: fixed;
 	top: 50%;
