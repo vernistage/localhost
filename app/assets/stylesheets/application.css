@@ -74,3 +74,7 @@ select {
 ul.nav {
   margin-bottom: 20px;
 }
+
+.btn#review-save{
+	margin-left: 16%;
+}
