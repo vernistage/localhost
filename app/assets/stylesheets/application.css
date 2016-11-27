@@ -17,6 +17,18 @@
  *= require_self
  */
 /*"bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"*/
+button#search {
+	opacity: 0.85; 
+	border-top-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+	border: none;
+	/*background-color: rgb(248, 248, 248);*/
+	background-color: #BABABA;
+	/*border-left: 1px solid grey;*/
+	padding-left: 25px;
+	padding-right: 25px;
+}
+
 a:-webkit-any-link {
     text-decoration:none;
 }
@@ -28,4 +40,26 @@ a:-webkit-any-link {
 	opacity: 0.85; 
 	line-height: 150px;
     	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+#search-form{
+	opacity: 0.85; 
+	border-radius: 6px;
+	margin: auto;
+	border: 2px solid rgb(248, 248, 248);
+	font-size: 40px;
+	background-color: rgb(248, 248, 248);
+}
+
+select#location{
+	opacity: 0.85; 
+	padding-left: 25px;
+	border: none;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
 }
