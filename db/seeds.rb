@@ -33,15 +33,15 @@ guest30 = User.create(email: "guest30@guest30.com", password: "password", name: 
 
 
 
-Category.create(title: "Art", description: "Local art tours") #category_id = 1
-Category.create(title: "Music", description: "Music around town") #category_id = 2
-Category.create(title: "Food & Drink", description: "Grab a bite or a pint") #category_id = 3
-Category.create(title: "Nightlife", description: "Take a night out on the town") #category_id = 4
-Category.create(title: "Fashion", description: "Hit the best shopping spots in the city") #category_id = 5
-Category.create(title: "Outdoors", description: "Get some fresh air") #category_id = 6
-Category.create(title: "Events", description: "Events around town") #category_id = 7
-Category.create(title: "Sports", description: "Root for the home team") #category_id = 8
-Category.create(title: "History", description: "Pay homage to the past") #category_id = 9
+Category.create(title: "Art", description: "Local art tours", image: "/images/art.jpg") #category_id = 1
+Category.create(title: "Music", description: "Music around town", image: "/images/music.jpg") #category_id = 2
+Category.create(title: "Food & Drink", description: "Grab a bite or a pint", image: "/images/food.jpg") #category_id = 3
+Category.create(title: "Nightlife", description: "Take a night out on the town", image: "/images/nightlife.jpg") #category_id = 4
+Category.create(title: "Fashion", description: "Hit the best shopping spots in the city", image: "/images/fashion.jpg") #category_id = 5
+Category.create(title: "Outdoors", description: "Get some fresh air", image: "/images/outdoors.jpg") #category_id = 6
+Category.create(title: "Events", description: "Events around town", image: "/images/events.jpg") #category_id = 7
+Category.create(title: "Sports", description: "Root for the home team", image: "/images/sports.jpg") #category_id = 8
+Category.create(title: "History", description: "Pay homage to the past", image: "/images/history.jpg") #category_id = 9
 
 
 #City 1 Austin
@@ -116,12 +116,3 @@ Category.create(title: "History", description: "Pay homage to the past") #catego
     UserTag.create(host_id: 6, tag_id: 21)
     UserTag.create(host_id: 6, tag_id: 13)
     UserTag.create(host_id: 6, tag_id: 11)
-
-
-
-
-
-
-
-
->>>>>>> master
