@@ -5,7 +5,9 @@ class ReviewsController < ApplicationController
 	end
 
 	def create
-		binding.pry
+		@review = params[:review]
+		# @review.booking_id =
+		# @review.save
 	end
 
 end
