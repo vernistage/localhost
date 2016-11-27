@@ -11,8 +11,6 @@ class UsersController < ApplicationController
   end
 
   def add_expertise
-    @user_category = UserCategory.new
-    @user_tag = UserTag.new
   end
 
   def post_expertise
@@ -21,6 +19,7 @@ class UsersController < ApplicationController
     UserTag.find_or_create_by(host_id: current_user.id, tag_id: t.id)
     redirect_to users_show_path(@current_user)
   end
+
 
   private
 

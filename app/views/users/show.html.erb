@@ -3,10 +3,6 @@
 <h3><%= @user.homebase %></h3>
 
 <% if @user.host == true  %>
-  <% if @user.categories.blank? %>
-    <%= link_to "Add your Expertise", add_expertise_path(@user)  %>
-
-  <% end %>
     <% @user.categories.each do |category| %>
       <h4><%= category.title %></h4>
       <ul>
@@ -17,17 +13,24 @@
         <% end %>
       </ul>
     <% end %>
+  <% if current_user.id == @user.id %>
+  <%= link_to "Add your Expertise", add_expertise_path(@user)  %>
   <h4>Your Bookings</h4>
-  <% if @user.host_bookings.blank? %>
-    <p>You have no bookings scheduled.</p>
-  <% else %>
-    <% @user.host_bookings.each do |booking| %>
-      <%= User.find(booking.guest_id) %>
-      <%= booking.summary %>
-      <%= booking.meet_location %>
+    <% if @user.host_bookings.blank? %>
+      <p>You have no bookings scheduled.</p>
+    <% else %>
+      <% @user.host_bookings.each do |booking| %>
+        <h5><%= User.find(booking.guest_id).email %></h5>
+        <%= booking.start_time %><br>
+        <%= booking.meet_location %><br>
+        <%= booking.summary %><br>
+      <% end %>
     <% end %>
+     <br><%= link_to "Schedule a opening", request_booking_path(@user)  %>
+  <% else  %>
+  <h4> Schedule a Booking </h4>
+    <p>Select a booking</p>
   <% end %>
-
 <% else %>
   <%= link_to "Become A Host", become_host_path %>
 
