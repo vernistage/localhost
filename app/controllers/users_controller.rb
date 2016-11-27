@@ -22,10 +22,11 @@ class UsersController < ApplicationController
     redirect_to users_show_path(@current_user)
   end
 
+  def update_photo
+
+    binding.pry
+  end
+
   private
 
-
-    # def expertise_params
-    #   params.require(:user_category).permit(:host_id, :category_id)
-    # end
 end
