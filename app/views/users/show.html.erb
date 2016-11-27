@@ -1,0 +1,44 @@
+
+<h2><%= @user.name %></h2>
+<h3><%= @user.homebase %></h3>
+
+<% if @user.host == true  %>
+  <% if @user.categories.blank? %>
+    add your specialties
+  <% end %>
+    <% @user.categories.each do |category| %>
+      <h4><%= category.title %></h4>
+      <ul>
+        <% @user.tags.each do |tag| %>
+          <li><%= tag.specialty %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  <h4>Your Bookings</h4>
+  <% if @user.host_bookings.blank? %>
+    <p>You have no bookings scheduled.</p>
+  <% else %>
+    <% @user.host_bookings.each do |booking| %>
+      <%= User.find(booking.guest_id) %>
+      <%= booking.summary %>
+      <%= booking.meet_location %>
+    <% end %>
+  <% end %>
+
+<% else %>
+  <%= link_to "Become A Host", become_host_path %>
+
+  <h4>Your Trips</h4>
+  <% if @user.guest_bookings.blank? %>
+    <p>You have no trips booked.</p>
+  <% else %>
+    <% @user.host_bookings.each do |booking| %>
+      <%= User.find(booking.host_id) %>
+      <%= booking.summary %>
+      <%= booking.meet_location %>
+    <% end %>
+  <% end %>
+<% end %>
+
+
+
