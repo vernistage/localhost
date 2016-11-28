@@ -78,3 +78,28 @@ ul.nav {
 .btn#review-save{
 	margin-left: 16%;
 }
+
+div.user-dashboard {
+	display: inline-block;
+	float: left;
+}
+
+div.user-dashboard img {
+	border-radius: 6%;
+}
+
+div.user-cats-profile {
+	float: left;
+}
+
+div.user-cats-profile div.category-block {
+	display: inline-block;
+	position: relative;
+	margin: 20px;
+}
+
+div.user-bio-block {
+	clear: both;
+	display: block;
+}
+

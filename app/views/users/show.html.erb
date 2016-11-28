@@ -2,44 +2,30 @@
 <br>
 
 <% if @user.host == true  %>
-  <% if @user.categories.blank? %>
-    <%= link_to "Add your Expertise", add_expertise_path(@user)  %>
 
-  <% end %>
-    <% @user.categories.each do |category| %>
-      <h4><%= category.title %></h4>
-      <ul>
-        <% @user.tags.each do |tag| %>
-          <% if tag.category_id == category.id  %>
-            <li><%= tag.specialty %></li>
-          <% end %>
-        <% end %>
-      </ul>
-    <% end %>
   <h4>Your Bookings</h4>
-  <% if @user.host_bookings.blank? %>
-    <p>You have no bookings scheduled.</p>
-  <% else %>
-    <% @user.host_bookings.each do |booking| %>
-      <%= User.find(booking.guest_id) %>
-      <%= booking.summary %>
-      <%= booking.meet_location %>
+    <% if @user.host_bookings.blank? %>
+      <p>You have no bookings scheduled.</p>
+    <% else %>
+      <% @user.host_bookings.each do |booking| %>
+        <%= User.find(booking.guest_id) %>
+        <%= booking.summary %>
+        <%= booking.meet_location %>
+      <% end %>
     <% end %>
-  <% end %>
 
-<% else %>
-  <%= link_to "Become A Host", become_host_path %>
+<% elsif @user.host == false %>
 
   <h4>Your Trips</h4>
-  <% if @user.guest_bookings.blank? %>
-    <p>You have no trips booked.</p>
-  <% else %>
-    <% @user.host_bookings.each do |booking| %>
-      <%= User.find(booking.host_id) %>
-      <%= booking.summary %>
-      <%= booking.meet_location %>
+    <% if @user.guest_bookings.blank? %>
+      <p>You have no trips booked.</p>
+    <% else %>
+      <% @user.host_bookings.each do |booking| %>
+        <%= User.find(booking.host_id) %>
+        <%= booking.summary %>
+        <%= booking.meet_location %>
+      <% end %>
     <% end %>
-  <% end %>
 <% end %>
 
 

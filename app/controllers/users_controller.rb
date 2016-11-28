@@ -22,11 +22,6 @@ class UsersController < ApplicationController
     redirect_to users_show_path(@current_user)
   end
 
-  def update_photo
-
-    binding.pry
-  end
-
   private
 
 end

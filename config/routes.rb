@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   get '/users/:id/add_expertise' => 'users#add_expertise', :as => :add_expertise
   post '/users/post_expertise' => 'users#post_expertise', :as => :post_expertise
 
-
 	post '/reviews/create' => 'reviews#create', :as => :create_review
 
   root to: "home#index"

@@ -1,15 +1,42 @@
 <div class="panel panel-default">
   <div class="panel-body">
 
-    <%=  image_tag @user.avatar.url(:thumb) %>
-    <h2><%= @user.name %></h2>
-    <h5><%= @user.homebase %></h5>
+    <div class="user-dashboard">
+      <%=  image_tag @user.avatar.url(:thumb) %>
+      <h2><%= @user.name %></h2>
+      <h5><%= @user.homebase %></h5>
 
-    <% if current_user == @user %>
-      <h6><%= link_to "Edit profile", edit_user_registration_path %></h6>
-    <% else %>
-      <h6><%= link_to "Contact #{@user.name}", users_show_path(@user)%></h6>
-    <% end %>
-    <p><%= @user.bio %></p>
+      <% if current_user == @user %>
+        <h6><%= link_to "Edit profile", edit_user_registration_path %></h6>
+        <% if current_user.host == true %>
+          <h6><%= link_to "Add your Expertise", add_expertise_path(@user)%></h6>
+        <% elsif current_user.host == false %>
+          <h6><%= link_to "Become A Host", become_host_path %></h6>
+        <% end %>
+
+      <% else %>
+        <h6><%= link_to "Contact #{@user.name}", users_show_path(@user)%></h6>
+      <% end %>
+    </div>
+
+    <div class="user-cats-profile">
+      <% @user.categories.each do |category| %>
+        <div class="category-block">
+          <h5><%= category.title %></h5>
+          <ul>
+            <% @user.tags.each do |tag| %>
+              <% if tag.category_id == category.id  %>
+                <li><%= tag.specialty %></li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="user-bio-block">
+      <p><%= @user.bio %></p>
+    </div>
+
   </div>
 </div
