@@ -3,9 +3,6 @@ class CategoriesController < ApplicationController
   def index
     @categories = Category.all
     session[:location] = params[:location]
-    respond_to do |format|
-      format.html {render layout: false}
-    end
   end
 
   def show
