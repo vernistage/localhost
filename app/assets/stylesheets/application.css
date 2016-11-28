@@ -17,9 +17,15 @@
  *= require_self
  */
 /*"bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"*/
+html, body {
+  height: 100%;
+}
+
 body{
   background-color: white;
-  background-size: 100%;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
   background-repeat: no-repeat;
 }
 

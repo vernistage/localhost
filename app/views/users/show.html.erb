@@ -9,8 +9,8 @@
       <% if @user.host_bookings.blank? %>
         <p>You have no bookings scheduled.</p>
       <% else %>
+        <%= link_to "Schedule a opening", request_booking_path(@user)  %>
         <% @user.host_bookings.each do |booking| %>
-        <% binding.pry %>
           <% if booking.start_time > Time.now %>
             <h5><%= User.find(booking.guest_id).email %></h5>
             <%= booking.start_time %><br>
@@ -20,7 +20,7 @@
         <% end %>
       <% end %>
 
-      <br><%= link_to "Schedule a opening", request_booking_path(@user)  %>
+
 
 
     <h4>Your Trips</h4>
