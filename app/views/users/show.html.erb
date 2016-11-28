@@ -4,16 +4,14 @@
 <% if @user.host == true  %>
   <% if current_user == @user %>
 
-
-
-    <h4>Your Bookings</h4>
+    <h4 class="your-bookings">Your Bookings</h4>
       <% if @user.host_bookings.blank? %>
         <p>You have no bookings scheduled.</p>
       <% else %>
+        <%= link_to "Schedule a booking", request_booking_path(@user)  %>
         <h5>Upcoming Bookings</h5>
-        <% flag = true %>
-        <% @user.host_bookings.each do |booking| %>
-
+          <% flag = true %>
+          <% @user.host_bookings.each do |booking| %>
           <% if booking.start_time > Time.now %>
             <% flag = false %>
             <%= User.find(booking.guest_id).email %><br>
@@ -42,7 +40,7 @@
         <% end %>
       <% end %>
 
-      <br><%= link_to "Schedule a opening", request_booking_path(@user)  %>
+
 
 
     <h4>Your Trips</h4>
