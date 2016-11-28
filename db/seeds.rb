@@ -209,7 +209,7 @@ Category.create!(title: "History", description: "Pay homage to the past", image:
 
 
   #Bookings ===============================================================================================
-    Booking.create!(guest_id: 16, host_id: 1, meet_location: "Capitol building", summary: "Tour of the Capitol building, grounds, and a long walk down the infamous Congress Ave.")
+    # Booking.create!(guest_id: 16, host_id: 1, meet_location: "Capitol building", summary: "Tour of the Capitol building, grounds, and a long walk down the infamous Congress Ave.")
 
   #Reviews ===============================================================================================
-    Review.create!(booking_id: 1, body: "phacoidoscope demethylate unangry cosmogoner predisposed capability rocta daimen tisane improbative nonsecret Stockbridge unworshipping sparklingness trochilus ideogrammic Huchnom severingly thunderheaded ascribable Kulanapan inone fumous benitoite", rating: 3)
+    # Review.create!(booking_id: 1, body: "phacoidoscope demethylate unangry cosmogoner predisposed capability rocta daimen tisane improbative nonsecret Stockbridge unworshipping sparklingness trochilus ideogrammic Huchnom severingly thunderheaded ascribable Kulanapan inone fumous benitoite", rating: 3)
