@@ -10,7 +10,7 @@
         <p>You have no bookings scheduled.</p>
       <% else %>
         <% @user.host_bookings.each do |booking| %>
-
+        <% binding.pry %>
           <% if booking.start_time > Time.now %>
             <h5><%= User.find(booking.guest_id).email %></h5>
             <%= booking.start_time %><br>
@@ -27,9 +27,6 @@
       <% if @user.guest_bookings.blank? %>
         <p>You have no trips booked.</p>
       <% else %>
-
-
-
         <% @user.guest_bookings.each do |booking| %>
           <% if booking.start_time > Time.now %>
             <h5>Upcoming Trips</h5>
@@ -37,8 +34,6 @@
             <%= booking.summary %><br>
             <%= booking.meet_location %><br><br>
           <% end %>
-
-
           <% if booking.end_time > Time.now && Review.find_by(booking_id: booking.id) == nil%>
             <h5>Completed Trip</h5>
             <%= User.find(booking.host_id).email %><br>
@@ -47,7 +42,6 @@
             <%=link_to "Leave a review", create_review_path(id: booking.id)  %><br>
           <% end %>
         <% end %>
-
       <% end %>
 
 
