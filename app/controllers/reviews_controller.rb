@@ -5,10 +5,22 @@ class ReviewsController < ApplicationController
 	end
 
   def create
-    Review.new(params.require(:review).permit(:body, :rating, :booking_id))
+    binding.pry
+    Review.create(params.require(:review).permit(:body, :rating, :booking_id))
     @current_user = current_user
-
     redirect_to users_show_path(@current_user)
+  end
+
+  def edit
+    binding.pry
+    @review = Review.find(params.permit(:id)[:id])
+  end
+
+  def update
+    binding.pry
+    Review.find_by(booking_id: params[:review][:booking_id]).destroy
+    Review.create(params.require(:review).permit(:body, :rating, :booking_id))
+    redirect_to users_show_path(current_user)
   end
 
   def show
