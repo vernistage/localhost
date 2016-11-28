@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20161127173809) do
 
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -81,7 +80,7 @@ ActiveRecord::Schema.define(version: 20161127173809) do
     t.string   "homebase"
     t.boolean  "host",                   default: false
     t.string   "image"
-    t.text     "bio"
+    t.text     "bio",                    default: ""
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

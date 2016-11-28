@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'registrations' }
   resources :categories, only: [:index, :show]
 
   get '/users/:id' => 'users#show', :as => :users_show
@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post '/users/post_expertise' => 'users#post_expertise', :as => :post_expertise
   get '/bookings/request_booking' => 'bookings#request_booking', :as => :request_booking
   post '/bookings/post_booking' => 'bookings#post_booking', :as => :post_booking
-	post '/reviews/create' => 'reviews#create', :as => :create_review
+	get '/reviews/new' => 'reviews#new', :as => :create_review
+  post 'reviews/create' => 'reviews#create', :as => :review
   root to: "home#index"
 end
