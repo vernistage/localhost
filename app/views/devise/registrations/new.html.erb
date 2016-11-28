@@ -4,20 +4,39 @@
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "ui form"}) do |f| %>
     <%= devise_error_messages! %>
 
-    <div class="field">
-      <%= f.label :name %><br />
-      <%= f.text_field :name, autofocus: true %>
+    <div class="grouped fields">
+      <div class="two fields">
+        <div class="inline field">
+          <%= f.label :name %><br />
+          <%= f.text_field :name, autofocus: true %>
+        </div>
+        <div class="inline field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true %>
+        </div>
+      </div>
     </div>
 
-    <div class="field">
-      <%= f.label :location %><br />
-      <%= f.text_field :homebase, autofocus: true %>
+    <div class="inline field">
+      <%= f.label :bio %><br />
+      <%= f.text_area :bio %><br />
     </div>
 
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true %>
-    </div>
+        <div class="ui left floated basic segment">
+          <div class="inline field">
+            <%= f.label :location %>
+            <%= select_tag(:location, options_for_select([["Austin", 'Austin'], ["Chicago", 'Chicago'], ["Los Angeles", 'Los Angeles'], ["New York", 'New York'], ["Seattle", 'Seattle']] ), {:class => 'ui search dropdown'})  %>
+          </div>
+        </div>
+
+        <div class="ui right floated basic segment">
+          <div class="ui toggle checkbox">
+            <br>
+            <br>
+            <%= f.check_box :host, checked_value: true, unchecked_value: false %>
+            <%= f.label "Become a host" %>
+          </div>
+        </div>
 
     <div class="field">
       <%= f.label :password %>
@@ -30,18 +49,6 @@
     <div class="field">
       <%= f.label :password_confirmation %><br />
       <%= f.password_field :password_confirmation, autocomplete: "off" %>
-    </div>
-
-    <div class="inline field">
-      <div class="ui toggle checkbox">
-        <%= f.check_box :host, checked_value: true, unchecked_value: false %>
-        <%= f.label "Become a host" %>
-      </div>
-    </div>
-
-    <div class="inline field">
-      <%= f.label :bio %><br />
-      <%= f.text_area :bio %><br />
     </div>
 
 
