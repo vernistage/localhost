@@ -5,18 +5,40 @@
   <% if current_user == @user %>
 
 
+
     <h4>Your Bookings</h4>
       <% if @user.host_bookings.blank? %>
         <p>You have no bookings scheduled.</p>
       <% else %>
+        <h5>Upcoming Bookings</h5>
+        <% flag = true %>
         <% @user.host_bookings.each do |booking| %>
-        <% binding.pry %>
+
           <% if booking.start_time > Time.now %>
-            <h5><%= User.find(booking.guest_id).email %></h5>
+            <% flag = false %>
+            <%= User.find(booking.guest_id).email %><br>
             <%= booking.start_time %><br>
             <%= booking.meet_location %><br>
             <%= booking.summary %><br>
+            <%= link_to "Edit Bookings", edit_booking_path(id: booking.id)%><br><br>
           <% end %>
+        <% end %>
+        <% if flag == true%>
+          <p>You have no upcoming trips</p>
+        <% end %>
+        <h5>Recent Bookings</h5>
+        <% flag = true %>
+        <% @user.host_bookings.each do |booking| %>
+          <% if booking.end_time < Time.now %>
+            <% flag = false %>
+            <%= User.find(booking.guest_id).email %><br>
+            <%= booking.start_time %><br>
+            <%= booking.meet_location %><br>
+            <%= booking.summary %><br><br>
+          <% end %>
+        <% end %>
+        <% if flag == true %>
+          <p>You have no recent trips</p>
         <% end %>
       <% end %>
 
@@ -27,15 +49,19 @@
       <% if @user.guest_bookings.blank? %>
         <p>You have no trips booked.</p>
       <% else %>
+
+
+        <h5>Upcoming Trips</h5>
         <% @user.guest_bookings.each do |booking| %>
           <% if booking.start_time > Time.now %>
-            <h5>Upcoming Trips</h5>
             <%= User.find(booking.host_id).email %><br>
             <%= booking.summary %><br>
             <%= booking.meet_location %><br><br>
           <% end %>
-          <% if booking.end_time > Time.now && Review.find_by(booking_id: booking.id) == nil%>
-            <h5>Completed Trip</h5>
+        <% end %>
+        <h5>Completed Trips</h5>
+        <% @user.guest_bookings.each do |booking| %>
+          <% if booking.end_time < Time.now && Review.find_by(booking_id: booking.id) == nil%>
             <%= User.find(booking.host_id).email %><br>
             <%= booking.summary %><br>
             <%= booking.meet_location %><br>
@@ -55,14 +81,14 @@
 
   <h4>Reviews</h4>
   <% @user.host_bookings.each do |booking| %>
-    <% begin %>
-      <% if Review.find(booking.id) != nil %>
-        <%= Review.find(booking.id).body %>
+    <% if Review.find_by(booking_id: booking.id) != nil %>
+      <br><%= Review.find_by(booking_id: booking.id).body %>
+      <br><%= Review.find_by(booking_id: booking.id).rating %><br>
+      <% if booking.guest == current_user %>
+        <%= link_to "Edit Review", edit_review_path(id: Review.find(booking.id).id)%><br>
       <% end %>
-    <% rescue %>
     <% end %>
   <% end %>
-
 
 
 <% elsif @user.host == false %>
@@ -70,32 +96,43 @@
 
   <% if current_user == @user %>
 
-  <h4>Your Trips</h4>
+  <h3>Your Trips</h3>
     <% if @user.guest_bookings.blank? %>
       <p>You have no trips booked.</p>
     <% else %>
 
-    <h5>Upcoming Trips</h5>
+      <h4>Upcoming Trips</h4>
       <% @user.guest_bookings.each do |booking| %>
         <% if booking.start_time > Time.now && Review.find_by(booking_id: booking.id) %>
-          <h5>Upcoming Trips</h5>
           <%= User.find(booking.host_id).email %><br>
-          <%= booking.summary %><br>
-          <%= booking.meet_location %><br><br>
+          <%= booking.meet_location %><br>
+          <%= booking.summary %><br><br>
         <% end %>
+      <% end %>
+      <h4>Completed Trips</h4>
+      <% @user.guest_bookings.each do |booking| %>
         <% if booking.end_time > Time.now %>
-          <h5>Completed Trip</h5>
           <%= User.find(booking.host_id).email %><br>
           <%= booking.summary %><br>
           <%= booking.meet_location %><br>
-          <%=link_to "Leave a review", create_review_path(id: booking.id)  %><br>
-       <% end %>
+          <%=link_to "Leave a review", create_review_path(id: booking.id)  %><br><br>
+        <% end %>
       <% end %>
     <% end %>
   <% end %>
-
-
+   <h4>Your Reviews</h4>
+  <% @user.guest_bookings.each do |booking| %>
+    <% if Review.find_by(booking_id: booking.id) != nil %>
+      <%= Review.find_by(booking_id: booking.id).body %>
+      <br><%= Review.find_by(booking_id: booking.id).rating %><br>
+      <% if booking.guest == current_user %>
+        <% binding.pry %>
+        <%= link_to "Edit Review", edit_review_path(id: Review.find_by(booking_id: booking.id).id)%><br>
+      <% end %>
+    <% end %>
+  <% end %>
 <% end %>
+
 
 
 
