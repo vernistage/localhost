@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-	
+
 	def new
 		@review = Review.new
 	end
@@ -9,5 +9,10 @@ class ReviewsController < ApplicationController
 		# @review.booking_id =
 		# @review.save
 	end
+
+  def show
+    @review = Review.find(1)
+    # @review = Review.find(num)
+  end
 
 end
