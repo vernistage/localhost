@@ -129,6 +129,11 @@ div.user-bio-block {
   margin-top: 30px;
 }
 
+.your-bookings {
+  display: inline-block;
+  margin-right: 30px;
+}
+
 
 /*Semantic UI Overrides*/
 .ui.menu {

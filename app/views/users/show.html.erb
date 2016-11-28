@@ -5,11 +5,11 @@
   <% if current_user == @user %>
 
 
-    <h4>Your Bookings</h4>
+    <h4 class="your-bookings">Your Bookings</h4>
       <% if @user.host_bookings.blank? %>
         <p>You have no bookings scheduled.</p>
       <% else %>
-        <%= link_to "Schedule a opening", request_booking_path(@user)  %>
+        <%= link_to "Schedule a booking", request_booking_path(@user)  %>
         <% @user.host_bookings.each do |booking| %>
           <% if booking.start_time > Time.now %>
             <h5><%= User.find(booking.guest_id).email %></h5>
