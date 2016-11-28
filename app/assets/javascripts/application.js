@@ -15,5 +15,3 @@
 //= require turbolinks
 //= require semantic
 //= require_tree .
-
-

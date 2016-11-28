@@ -17,6 +17,16 @@
  *= require_self
  */
 /*"bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"*/
+body{
+  background-image: url("");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.right-align{
+	text-align: right;
+}
+
 #city-search{
 	position: fixed;
 	top: 50%;
@@ -45,6 +55,7 @@ a:-webkit-any-link {
 	font-size: 60px;
 	text-align: center;
 	opacity: 0.85;
+
 	line-height: 150px;
     	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
@@ -65,8 +76,8 @@ select#location{
 }
 
 select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
+/*    -webkit-appearance: none;
+    -moz-appearance: none;*/
     text-indent: 1px;
     text-overflow: '';
 }
@@ -103,3 +114,79 @@ div.user-bio-block {
 	display: block;
 }
 
+
+/*Semantic UI Overrides*/
+.ui.menu {
+  opacity: 85px;
+}
+#registration-form{
+	position: fixed;
+	margin: auto;
+	margin-left: -200px;
+	margin-top: -400px;
+}
+
+.ui.text.container{
+	position: fixed;
+	top: 50%;
+	left: 30%;
+	margin-left: -200px;
+	margin-top: -192px;
+}
+
+.ui.form .inline.fields .field > input, .ui.form .inline.fields .field > select, .ui.form .inline.field > input, .ui.form .inline.field > select{
+		width: 100%;
+}
+
+.ui.text.container {
+	max-width: 400px !important;
+}
+
+input {
+  cursor: pointer;
+  display: inline-block;
+  min-height: 1em;
+  outline: none;
+  border: none;
+  vertical-align: baseline;
+  background: #E0E1E2 none;
+  color: rgba(0, 0, 0, 0.6);
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  margin: 0em 0.25em 0em 0em;
+  padding: 0.78571429em 1.5em 0.78571429em;
+  text-transform: none;
+  text-shadow: none;
+  font-weight: bold;
+  line-height: 1em;
+  font-style: normal;
+  text-align: left;
+  text-decoration: none;
+  border-radius: 0.28571429rem;
+  box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+  transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+  will-change: '';
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child {
+  margin-top: 1em;
+}
+
+.card{
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.image{
+  opacity: 90%;
+}
+
+.ui.three.stackable.cards{
+  margin-left: 4em;
+}
+>>>>>>> master

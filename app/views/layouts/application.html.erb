@@ -12,19 +12,19 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-
-      <ul class="nav nav-pills">
-        <li role="presentation" class="active"><%= link_to "Home", root_path %></li>
-
+     <div class="ui top fixed menu">
+        <%= link_to "Home", root_path, class:"item" %>
+      <div class="right menu">
         <% if !user_signed_in? %>
-          <li role="presentation" class="pull-right"><%= link_to "Register", new_user_registration_path %></li>
-          <li role="presentation" class="pull-right"><%= link_to "Log in", new_user_session_path %></li>
+          <%= link_to "Log in", new_user_session_path, class:"item" %>
+          <%= link_to "Register", new_user_registration_path, class:"item" %>
         <% else %>
-          <li role="presentation" class="pull-right"><%= link_to current_user.name, users_show_path(current_user) %></li>
-          <li role="presentation" class="pull-right"><%= link_to "Log out", destroy_user_session_path, :method => 'delete' %></li>
+          <%= link_to current_user.name, users_show_path(current_user), class:"item" %>
 
+          <%= link_to "Log out", destroy_user_session_path, :method => 'delete', class:"item" %>
         <% end %>
-      </ul>
+      </div>
+    </div>
     <div class="ui container">
       <%= yield %>
     </div>

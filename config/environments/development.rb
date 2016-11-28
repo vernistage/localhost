@@ -54,7 +54,4 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  # Include Bootstrap glyphicons
-  config.assets.precompile << %r(vendor/assets/fonts/[\w-]+\.(?:eot|svg|ttf|woff2?)$)
-
 end
