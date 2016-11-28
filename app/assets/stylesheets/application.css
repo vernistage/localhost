@@ -49,6 +49,7 @@ a:-webkit-any-link {
 	font-size: 60px;
 	text-align: center;
 	opacity: 0.85;
+
 	line-height: 150px;
     	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
@@ -139,4 +140,21 @@ input {
   transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
   will-change: '';
   -webkit-tap-highlight-color: transparent;
+}
+
+h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child {
+  margin-top: 1em;
+}
+
+.card{
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.image{
+  opacity: 90%;
+}
+
+.ui.three.stackable.cards{
+  margin-left: 4em;
 }
