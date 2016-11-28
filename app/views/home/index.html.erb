@@ -1,10 +1,12 @@
-<div class="input-group" id="city-search">
-	<div id="search-form" class="center-block">
-		<%= form_tag("/categories", method: "get") do %>
-			<%= select_tag(:location, options_for_select([["Austin", 'Austin'], ["Chicago", 'Chicago'], ["Los Angeles", 'Los Angeles'], ["New York", 'New York'], ["Seattle", 'Seattle']])) %>
-			<button id="search" type='submit'>
-				<%= fa_icon("search") %>
-			</button>
-		<% end %>
-	</div>
-<div>
+<div class="test-background">
+  <div class="input-group" id="city-search">
+  	<div id="search-form" class="center-block">
+  		<%= form_tag("/categories", method: "get") do %>
+  			<%= select_tag(:location, options_for_select([["Austin", 'Austin'], ["Chicago", 'Chicago'], ["Los Angeles", 'Los Angeles'], ["New York", 'New York'], ["Seattle", 'Seattle']])) %>
+  			<button id="search" type='submit'>
+  				<%= fa_icon("search") %>
+  			</button>
+  		<% end %>
+  	</div>
+  </div>
+</div>
