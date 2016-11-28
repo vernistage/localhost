@@ -99,6 +99,10 @@ div.user-dashboard img {
 	border-radius: 6%;
 }
 
+div.user-dashboard h2, h3, h4, h5, h6 {
+  margin: 5px;
+}
+
 div.user-cats-profile {
 	float: left;
 }
@@ -112,6 +116,7 @@ div.user-cats-profile div.category-block {
 div.user-bio-block {
 	clear: both;
 	display: block;
+  margin-top: 30px;
 }
 
 
@@ -190,3 +195,6 @@ h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child {
   margin-left: 4em;
 }
 
+.container > .main {
+  margin-top: 70px;
+}
