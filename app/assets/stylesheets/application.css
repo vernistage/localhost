@@ -69,8 +69,8 @@ select#location{
 }
 
 select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
+/*    -webkit-appearance: none;
+    -moz-appearance: none;*/
     text-indent: 1px;
     text-overflow: '';
 }
@@ -84,6 +84,9 @@ ul.nav {
 }
 
 /*Semantic UI Overrides*/
+.ui.menu {
+  opacity: 85px;
+}
 #registration-form{
 	position: fixed;
 	margin: auto;
