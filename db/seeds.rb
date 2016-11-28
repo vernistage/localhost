@@ -115,3 +115,9 @@ Category.create!(title: "History", description: "Pay homage to the past", image:
     UserTag.create!(host_id: 6, tag_id: 21)
     UserTag.create!(host_id: 6, tag_id: 13)
     UserTag.create!(host_id: 6, tag_id: 11)
+
+  #Bookings
+    Booking.create!(guest_id: 16, host_id: 1, meet_location: "Capitol building", summary: "Tour of the Capitol building, grounds, and a long walk down the infamous Congress Ave.")
+
+  #Reviews
+    Review.create!(booking_id: 1, body: "phacoidoscope demethylate unangry cosmogoner predisposed capability rocta daimen tisane improbative nonsecret Stockbridge unworshipping sparklingness trochilus ideogrammic Huchnom severingly thunderheaded ascribable Kulanapan inone fumous benitoite", rating: 3)

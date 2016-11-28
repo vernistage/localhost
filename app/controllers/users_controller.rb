@@ -23,8 +23,4 @@ class UsersController < ApplicationController
 
   private
 
-
-    # def expertise_params
-    #   params.require(:user_category).permit(:host_id, :category_id)
-    # end
 end

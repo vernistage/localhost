@@ -11,6 +11,9 @@ class ReviewsController < ApplicationController
     redirect_to users_show_path(@current_user)
   end
 
-
+  def show
+    @review = Review.find(1)
+    # @review = Review.find(num)
+  end
 
 end

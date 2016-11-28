@@ -3,7 +3,9 @@
   <%= @error %>
 <% else %>
   <% @filtered_users.each do |user| %>
-    <p><%= link_to user.name, users_show_path(user) %> - <%= user.homebase %></p>
+    <% @user = user %>
+    <%= render '/users/show' %>
+    <br>
   <% end %>
 <% end %>
 
