@@ -37,6 +37,11 @@ body{
 	text-align: right;
 }
 
+#edit-form{
+  padding: 2em;
+  max-width: 700px !important;
+}
+
 #city-search{
 	position: fixed;
 	top: 50%;
@@ -140,18 +145,11 @@ div.user-bio-block {
   opacity: 85px;
 }
 #registration-form{
-	position: fixed;
-	margin: auto;
-	margin-left: -200px;
-	margin-top: -400px;
+  padding: 2em;
+  max-width: 700px !important;
 }
 
 .ui.text.container{
-	position: fixed;
-	top: 50%;
-	left: 30%;
-	margin-left: -200px;
-	margin-top: -192px;
 }
 
 .ui.form .inline.fields .field > input, .ui.form .inline.fields .field > select, .ui.form .inline.field > input, .ui.form .inline.field > select{
@@ -162,7 +160,7 @@ div.user-bio-block {
 	max-width: 400px !important;
 }
 
-input {
+input[type="submit"] {
   cursor: pointer;
   display: inline-block;
   min-height: 1em;

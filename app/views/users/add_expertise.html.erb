@@ -1,9 +1,18 @@
-<%= form_tag(post_expertise_path) do %>
-  <%= label_tag 'category' %>
-  <%= collection_select :user_category, :category_id, Category.all, :id, :title %>
-  <%= label_tag 'expertise' %>
-  <%= text_field_tag :specialty %>
-  <%= submit_tag %>
-<% end %>
+<div id="expertise-form" class="ui raised very padded text container segment">
+  <h2 class="ui dividing header">Add specialty</h2>
+    <div class= "ui form">
+      <%= form_tag(post_expertise_path) do %>
+        <div class="field">
+          <%= label_tag 'category' %>
+          <%= collection_select :user_category, :category_id, Category.all, :id, :title %>
+        </div>
+        <div class="field">
+          <%= label_tag 'expand:' %>
+          <%= text_field_tag :specialty %>
+        </div>
+        <%= submit_tag %>
+      <% end %>
+    </div>
+</div>
 
 
