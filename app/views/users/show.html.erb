@@ -60,7 +60,7 @@
         <% end %>
         <h5>Completed Trips</h5>
         <% @user.guest_bookings.each do |booking| %>
-          <% if booking.end_time < Time.now && Review.find_by(booking_id: booking.id) == nil%>
+          <% if booking.end_time < Time.now && Review.find_by(booking_id: booking.id) == nil %>
             <%= User.find(booking.host_id).email %><br>
             <%= booking.summary %><br>
             <%= booking.meet_location %><br>
@@ -102,7 +102,7 @@
 
       <h4>Upcoming Trips</h4>
       <% @user.guest_bookings.each do |booking| %>
-        <% if booking.start_time > Time.now && Review.find_by(booking_id: booking.id) %>
+        <% if booking.start_time > Time.now %>
           <%= User.find(booking.host_id).email %><br>
           <%= booking.meet_location %><br>
           <%= booking.summary %><br><br>
@@ -110,10 +110,11 @@
       <% end %>
       <h4>Completed Trips</h4>
       <% @user.guest_bookings.each do |booking| %>
-        <% if booking.end_time > Time.now %>
+        <% if booking.end_time < Time.now %>
           <%= User.find(booking.host_id).email %><br>
           <%= booking.summary %><br>
           <%= booking.meet_location %><br>
+
           <%=link_to "Leave a review", create_review_path(id: booking.id)  %><br><br>
         <% end %>
       <% end %>
