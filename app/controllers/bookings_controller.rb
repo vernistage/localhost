@@ -43,4 +43,7 @@ class BookingsController < ApplicationController
     redirect_to users_show_path(@current_user)
   end
 
+  def cancel
+
+  end
 end

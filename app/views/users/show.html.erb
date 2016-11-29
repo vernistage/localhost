@@ -19,7 +19,8 @@
             <%= booking.start_time %><br>
             <%= booking.meet_location %><br>
             <%= booking.summary %><br>
-            <%= link_to "Edit Bookings", edit_booking_path(id: booking.id)%><br><br>
+            <%= link_to "Edit Bookings", edit_booking_path(id: booking.id)%><br>
+            <%= link_to "Cancel Booking", cancel_booking_path(booking), :method => :delete, :confirm => "You sure?" %><br>
           <% end %>
         <% end %>
         <% if flag == true%>
