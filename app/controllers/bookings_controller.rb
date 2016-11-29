@@ -44,6 +44,7 @@ class BookingsController < ApplicationController
   end
 
   def cancel
-
+    Booking.find(params[:id]).destroy
+    redirect_to users_show_path(current_user)
   end
 end
