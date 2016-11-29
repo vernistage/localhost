@@ -8,13 +8,14 @@ $(document).ready(function(){
     event.preventDefault();
     var t = $(this)
     $.ajax({
-      type: 'GET',
-      url: "/categories"
+      type: 'POST',
+      url: "/categories",
+      data: t.parent().serialize()
     }).done(function(response){
       // Remove header
       t.parent().parent().parent().find('#main-header').remove()
       // Move up search
-      t.parent().animate({'marginTop' : "-=90px", 'animation-duration': '0.00001s' });
+      t.parent().css('margin-top','-180px');
       // Remove any previous append
       t.parent().parent().parent().siblings().children().remove()
       // Add categories below

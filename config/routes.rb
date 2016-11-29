@@ -13,5 +13,7 @@ Rails.application.routes.draw do
   post 'reviews/create' => 'reviews#create', :as => :review
   # get '/reviews/:id' => 'reviews#show', as: 'review'
 
+  post '/categories' => 'categories#index'
+
   root to: "home#index"
 end
