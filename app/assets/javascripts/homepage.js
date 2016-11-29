@@ -3,17 +3,25 @@ $('body').css({
   'background-image': 'url(images/' + images[Math.floor(Math.random() * images.length)] + ')'
 });
 
-// $(document).ready(function(){
-//    $('body').on('click', '#search', function(event){
-//     event.preventDefault();
-//     var t = $(this)
-//     $.ajax({
-//       type: 'GET',
-//       url: "/categories"
-//     }).done(function(response){
-//       t.parent().parent().animate({'marginTop' : "-=150px" });
-//     })
-//   })
-// })
+$(document).ready(function(){
+   $('body').on('click', '#search', function(event){
+    event.preventDefault();
+    var t = $(this)
+    $.ajax({
+      type: 'POST',
+      url: "/categories",
+      data: t.parent().serialize()
+    }).done(function(response){
+      // Remove header
+      t.parent().parent().parent().find('#main-header').remove()
+      // Move up search
+      t.parent().css('margin-top','-180px');
+      // Remove any previous append
+      t.parent().parent().parent().siblings().children().remove()
+      // Add categories below
+      $('.categories-list').append(response)
+    })
+  })
+})
 
 
