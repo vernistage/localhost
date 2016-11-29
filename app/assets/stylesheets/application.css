@@ -36,17 +36,47 @@ body{
   max-width: 700px !important;
 }
 
-#city-search{
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	margin-left: -172px;
-	margin-top: -31px;
+/*#Google Font*/
+h1#main-header{
+  font-family: 'Droid Sans', sans-serif;
+  font-size: 100px;
+  color: white;
+  text-align: center;
+  line-height: 150px;
+  text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
 }
+
+#city-search{
+	/*position: fixed;*/
+  /*margin:auto;*/
+	margin-top: 20%;
+	/*left: 50%;*/
+	/*margin-left: -172px;*/
+	/*margin-top: -31px;*/
+}
+
+#search-form{
+  opacity: 0.85;
+  border-radius: 6px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 342px;
+  border: 2px solid rgb(248, 248, 248);
+  font-size: 40px;
+  background-color: rgb(248, 248, 248);
+}
+
+select#location{
+  opacity: 0.85;
+  padding-left: 25px;
+  border: none;
+}
+
 button#search {
 	opacity: 0.85;
-	border-top-right-radius: 6px;
-	border-bottom-right-radius: 6px;
+  height: 50px;
+  width: 88px;
+	border-radius: 6px;
 	border: none;
 	/*background-color: rgb(248, 248, 248);*/
 	background-color: #BABABA;
@@ -67,21 +97,6 @@ a:-webkit-any-link {
 
 	line-height: 150px;
     	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-}
-
-#search-form{
-	opacity: 0.85;
-	border-radius: 6px;
-	margin: auto;
-	border: 2px solid rgb(248, 248, 248);
-	font-size: 40px;
-	background-color: rgb(248, 248, 248);
-}
-
-select#location{
-	opacity: 0.85;
-	padding-left: 25px;
-	border: none;
 }
 
 select {
@@ -200,3 +215,4 @@ h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child {
 .container > .main {
   margin-top: 70px;
 }
+
