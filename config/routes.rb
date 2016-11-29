@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   post '/reviews/create' => 'reviews#create', :as => :review
   get '/reviews/edit' => 'reviews#edit', :as => :edit_review
   put '/reviews/update' => 'reviews#update', :as => :update_review
-
+  get '/conversations/index' => 'conversations#index', :as => :conversations_index
   # get '/reviews/:id' => 'reviews#show', as: 'review'
 
   root to: "home#index"
