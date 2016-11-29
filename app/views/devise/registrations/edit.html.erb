@@ -17,14 +17,18 @@
       </div>
       <div class="two fields">
        <!-- Name field -->
-        <div class="inline field">
-          <%= f.label :name %><br />
-          <%= f.text_field :name, autofocus: true %>
+        <div class="ui left floated basic segment">
+          <div class="inline field">
+            <%= f.label :name %><br />
+            <%= f.text_field :name, autofocus: true %>
+          </div>
         </div>
-        <!-- Email field -->
-        <div class="inline field">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true %>
+        <!-- Homebase field -->
+        <div class="ui right floated basic segment">
+          <div class="inline field">
+              <%= f.label :location %>
+              <%= f.select(:homebase, options_for_select([["Austin", 'Austin'], ["Chicago", 'Chicago'], ["Los Angeles", 'Los Angeles'], ["New York", 'New York'], ["Seattle", 'Seattle']] ), {:class => 'ui search dropdown'})  %>
+          </div>
         </div>
       </div>
       <!-- Bio field -->
