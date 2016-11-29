@@ -28,7 +28,6 @@
         <h5>Recent Bookings</h5>
         <% flag = true %>
         <% @user.host_bookings.each do |booking| %>
-          <% binding.pry %>
           <% if booking.end_time < Time.now %>
             <% flag = false %>
             <%= User.find(booking.guest_id).email %><br>
@@ -85,7 +84,6 @@
       <br><%= Review.find_by(booking_id: booking.id).body %>
       <br><%= Review.find_by(booking_id: booking.id).rating %><br>
       <% if booking.guest == current_user %>
-      <% binding.pry %>
         <%= link_to "Edit Review", edit_review_path(id: Review.find_by(booking_id: booking.id).id)%><br>
       <% end %>
     <% end %>
@@ -127,7 +125,6 @@
       <%= Review.find_by(booking_id: booking.id).body %>
       <br><%= Review.find_by(booking_id: booking.id).rating %><br>
       <% if booking.guest == current_user %>
-        <% binding.pry %>
         <%= link_to "Edit Review", edit_review_path(id: Review.find_by(booking_id: booking.id).id)%><br>
       <% end %>
     <% end %>

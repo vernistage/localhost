@@ -6,8 +6,6 @@ class BookingsController < ApplicationController
 
   def post_booking
 
-    binding.pry
-
     times = {"Austin" =>  21600, "Chicago" =>  21600, "New York" => 18000, "Los Angeles" => 28800, "Seattle" =>  28800}
 
     start_time = params[:start_time]
@@ -16,8 +14,6 @@ class BookingsController < ApplicationController
     end_time = params[:end_time]
     end_time += ":00+00:00"
     end_time = DateTime.strptime(end_time).utc + times[session[:location]]
-
-    binding.pry
     Booking.create(guest_id: User.find_by(email: params[:guest]).id, host_id: current_user.id, meet_location: params[:meet_location], start_time: start_time, end_time: end_time, summary: params[:summary])
     redirect_to users_show_path(@current_user)
   end
@@ -27,7 +23,15 @@ class BookingsController < ApplicationController
   end
 
   def update_booking
-    times = {"Austin" => 21600, "Chicago" => 21600, "New York" =>18000, "Los Angeles" =>28800, "Seattle" => 28800}
+   times = {"Austin" =>  21600, "Chicago" =>  21600, "New York" => 18000, "Los Angeles" => 28800, "Seattle" =>  28800}
+
+    start_time = params[:start_time]
+    start_time += ":00+00:00"
+    start_time = DateTime.strptime(start_time).utc + times[session[:location]]
+    end_time = params[:end_time]
+    end_time += ":00+00:00"
+    end_time = DateTime.strptime(end_time).utc + times[session[:location]]
+
     b = Booking.find(params[:booking_id])
     b.guest_id = User.find_by(email: params[:guest]).id
     b.host_id = current_user.id
