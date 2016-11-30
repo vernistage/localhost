@@ -1,7 +1,12 @@
 class BookingsController < ApplicationController
 
-  def request_booking
+  def show
+    @booking = Booking.find(params[:id])
+    @host = User.find(@booking.host_id)
+    @guest = User.find(@booking.guest_id)
+  end
 
+  def request_booking
   end
 
   def post_booking

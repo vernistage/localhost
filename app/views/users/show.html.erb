@@ -5,19 +5,26 @@
   <!-- Begin host view -->
   <% if @user.host == true && current_user == @user %>
     <!-- Begin host bookings-->
-    <h4 class="your-bookings">Your Bookings</h4><br>
-    <%= link_to "Schedule a booking", request_booking_path(@user)  %>
+    <h2 class="ui center aligned header">
+      <i class="fa fa-address-card-o" aria-hidden="true"></i>
+      <div class="content">
+        Your Bookings
+      </div>
+    </h2>
+    <center>
+      <%= link_to "Schedule a booking", request_booking_path(@user) %>
+    </center>
     <% if @user.host_bookings.blank? %>
-      <p><em>You have no bookings scheduled.</em></p>
+      <center><em>You have no bookings scheduled.</em></center>
     <% else %>
        <!-- Begin upcoming host bookings-->
       <div class="ui segments">
         <h5>Upcoming bookings</h5>
-          <% @user.host_bookings.each do |booking| %>
-            <div class="ui secondary segment">
-              <%= render partial: "bookings/upcoming_host_booking", locals: {booking: booking, times: times} %>
-            </div>
-      <% end %>
+        <% @user.host_bookings.each do |booking| %>
+          <div class="ui secondary segment">
+            <%= render partial: "bookings/upcoming_host_booking", locals: {booking: booking, times: times} %>
+          </div>
+        <% end %>
       </div>
       <!-- Begin completed host bookings-->
       <div class="ui segments">
@@ -27,7 +34,7 @@
           <div class="ui secondary segment">
             <%= render partial: "bookings/completed_host_booking", locals: {booking: booking, flag: flag} %>
             <% if flag == true %>
-              <p>None.</p>
+              <em>None.</em>
             <% end %>
           </div>
         <% end %>
@@ -36,42 +43,46 @@
   <% end %>
   <!-- Begin Guest Trips -->
   <% if current_user == @user %>
-    <h3>Your Trips</h3>
+    <h2 class="ui center aligned  header">
+      <i class="fa fa-plane" aria-hidden="true"></i>
+      <div class="content">
+        Your Trips
+      </div>
+    </h2>
     <% if @user.guest_bookings.blank? %>
-      <p>You have no trips booked.</p>
+      <center><em>You currently have no trips booked.</em></center>
     <% else %>
       <!-- Begin Guest Upcoming Trips -->
-      <h4>Upcoming Trips</h4>
-      <% @user.guest_bookings.each do |booking| %>
-        <%= render partial: "bookings/upcoming_guest_booking", locals: {booking: booking} %>
-      <% end %>
+      <div class="ui segments">
+        <h4>Upcoming Trips</h4>
+        <% @user.guest_bookings.each do |booking| %>
+          <div class="ui secondary segment">
+            <%= render partial: "bookings/upcoming_guest_booking", locals: {booking: booking} %>
+          </div>
+        <% end %>
+      </div>
       <!-- Begin Guest Completed Trips -->
+      <div class="ui segments">
       <h4>Completed Trips</h4>
-      <% @user.guest_bookings.each do |booking| %>
-        <%= render partial: "bookings/completed_guest_booking", locals: {booking: booking} %>
-      <% end %>
-    <% end %>
-    <!-- Begin Guest Reviews-->
-     <h4>Your Reviews</h4>
-    <% @user.guest_bookings.each do |booking| %>
-      <%= render partial: "reviews/review_view", locals: {booking: booking} %>
+        <% @user.guest_bookings.each do |booking| %>
+          <div class="ui secondary segment">
+            <%= render partial: "bookings/completed_guest_booking", locals: {booking: booking} %>
+          </div>
+        <% end %>
+      </div>
+      <!-- Begin Guest Reviews-->
+      <div class="ui segments">
+        <h4>Your Reviews</h4>
+        <% @user.guest_bookings.each do |booking| %>
+          <div class="ui secondary segment">
+            <%= render partial: "reviews/review_view", locals: {booking: booking} %>
+          </div>
+        <% end %>
+      </div>
     <% end %>
   <% end %>
   <div id="map"></div>
 </div>
 
-<!-- Google maps -->
-<script>
-  var map;
-  function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: 40.7413549, lng: -73.9980244},
-      zoom: 13
-    });
-  }
-</script>
 
-<script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_KEY']%>&v=3&callback=initMap">
-</script>
 

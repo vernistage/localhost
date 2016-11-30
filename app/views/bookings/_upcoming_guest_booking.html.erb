@@ -5,4 +5,5 @@
   <%= link_to "Cancel Booking", cancel_booking_path(booking), :method => :delete, :confirm => "You sure?" %><br><br>
 <% end %>
 
+<%= link_to "View details", action: "bookings/show_booking", controller: 'booking' %>
 

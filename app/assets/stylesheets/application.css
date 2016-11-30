@@ -22,7 +22,7 @@ html, body {
 }
 
 body{
-  background-color: white;
+  background-color: #FF9042;
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
@@ -54,10 +54,13 @@ body{
   line-height: 150px;
 }
 
-/*
-.right-align{
-	text-align: right;
-}*/
+.fa-plane{
+  padding-right: 20px;
+}
+
+.fa-address-card-o{
+  padding-right: 20px;
+}
 
 #edit-form{
   padding: 2em;
