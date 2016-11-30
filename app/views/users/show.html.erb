@@ -8,26 +8,30 @@
     <h4 class="your-bookings">Your Bookings</h4><br>
     <%= link_to "Schedule a booking", request_booking_path(@user)  %>
     <% if @user.host_bookings.blank? %>
-      <p>You have no bookings scheduled.</p>
+      <p><em>You have no bookings scheduled.</em></p>
     <% else %>
        <!-- Begin upcoming host bookings-->
-      <h5>Upcoming bookings</h5>
+      <div class="ui segments">
+        <h5>Upcoming bookings</h5>
+          <% @user.host_bookings.each do |booking| %>
+            <div class="ui secondary segment">
+              <%= render partial: "bookings/upcoming_host_booking", locals: {booking: booking, times: times} %>
+            </div>
+      <% end %>
+      </div>
+      <!-- Begin completed host bookings-->
+      <div class="ui segments">
+        <h5>Completed bookings</h5>
         <% flag = true %>
         <% @user.host_bookings.each do |booking| %>
-          <%= render partial: "bookings/upcoming_host_booking", locals: {booking: booking, flag: flag, times: times} %>
+          <div class="ui secondary segment">
+            <%= render partial: "bookings/completed_host_booking", locals: {booking: booking, flag: flag} %>
+            <% if flag == true %>
+              <p>None.</p>
+            <% end %>
+          </div>
         <% end %>
-      <% if flag == true%>
-        <p>You have no upcoming trips</p>
-      <% end %>
-      <!-- Begin completed host bookings-->
-      <h5>Completed bookings</h5>
-      <% flag = true %>
-      <% @user.host_bookings.each do |booking| %>
-        <%= render partial: "bookings/completed_host_booking", locals: {booking: booking, flag: flag} %>
-      <% end %>
-      <% if flag == true %>
-        <p>None.</p>
-      <% end %>
+      </div>
     <% end %>
   <% end %>
   <!-- Begin Guest Trips -->
@@ -56,7 +60,7 @@
   <div id="map"></div>
 </div>
 
-
+<!-- Google maps -->
 <script>
   var map;
   function initMap() {
