@@ -7,12 +7,11 @@ Rails.application.routes.draw do
   get '/users/:id/add_expertise' => 'users#add_expertise', :as => :add_expertise
   post '/users/post_expertise' => 'users#post_expertise', :as => :post_expertise
 
-
-
   get '/bookings/request_booking' => 'bookings#request_booking', :as => :request_booking
   post '/bookings/post_booking' => 'bookings#post_booking', :as => :post_booking
   get '/bookings/edit_booking' => 'bookings#edit_booking', :as => :edit_booking
   patch '/bookings/update_booking' => 'bookings#update_booking', :as => :update_booking
+  get 'bookings/:id' => 'bookings#show', :as => :show_booking
   delete '/bookings/:id' => 'bookings#cancel', :as => :cancel_booking
 
 
