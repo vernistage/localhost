@@ -4,6 +4,6 @@
   <p align="right"><small>
     <em><%= Time.at(@review.created_at).strftime("%B %e, %Y") %>, <%= @review.guest.name %>
     </em>
-    , Rating: <%= @review.rating %>
+    , Rating: <div class="star-rating" data-score= <%= @review.rating %> ></div>
   </small></p>
 </div>
