@@ -84,7 +84,7 @@
   <% @user.host_bookings.each do |booking| %>
     <% if Review.find_by(booking_id: booking.id) != nil %>
       <br><%= Review.find_by(booking_id: booking.id).body %>
-      <br><%= Review.find_by(booking_id: booking.id).rating %><br>
+      <br><div class="star-rating" data-score= <%= Review.find_by(booking_id: booking.id).rating %> ></div><br>
       <% if booking.guest == current_user %>
         <%= link_to "Edit Review", edit_review_path(id: Review.find_by(booking_id: booking.id).id)%><br>
       <% end %>

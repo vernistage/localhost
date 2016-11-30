@@ -44,10 +44,16 @@
       </div>
     </div>
 
-    <!--    Raty Stars -->
+    <!-- Raty Logic -->
+    <% @reviews = @user.host_reviews("created_at DESC") %>
+    <% if @reviews.empty? %>
+      <% @avg_review = 0 %>
+    <% else %>
+      <% @avg_review = @reviews.average(:rating).round(2).to_i %>
+      <!--    Raty Stars -->
       <div class="star-rating" data-score='<%= @avg_review %>'</div>
       <em><%= "#{@reviews.length} review(s)" %></em>
-
+    <% end %>
   </div>
 </div>
 
