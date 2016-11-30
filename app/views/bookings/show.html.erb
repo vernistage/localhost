@@ -1,11 +1,15 @@
-Host: <%= @host.name %><br>
-Guest: <%= @guest.name %><br>
-Details: <%= @booking.summary %><br>
-Meet point specified by host: <%= @booking.meet_location %><br><br>
+<div class="ui segment">
+  Host: <%= @host.name %><br>
+  Guest: <%= @guest.name %><br>
+  Details: <%= @booking.summary %><br>
+  Meet point specified by host: <div id="address"><%= @booking.meet_location %></div><br><br>
 
-<%= link_to "Back", controller: "users", action: "show", id: current_user %>
-<!-- Google Maps Begin -->
-<div id="map"></div>
+  <h2><%= link_to "Back", controller: "users", action: "show", id: current_user %></h2>
+  <br>
+  <br>
+  <!-- Google Maps Begin -->
+  <div id="map"></div>
+</div>
 
 <script>
   var map;
@@ -14,9 +18,41 @@ Meet point specified by host: <%= @booking.meet_location %><br><br>
       center: {lat: 40.7413549, lng: -73.9980244},
       zoom: 13
     });
+    var tribeca = {lat: 40.719526, lng: -74.0089934};
+    var marker = new google.maps.Marker({
+      position:tribeca,
+      map: map,
+      title: 'MARKER'
+    });
+    var infowindow = new google.maps.InfoWindow({
+      content: "I have more to say"
+    })
+    marker.addListener('click', function(){
+      infowindow.open(map, marker);
+    });
+  }
+
+  function zoomToArea() {
+    var geocoder = new google.maps.Geocoder();
+    var address = $(document.getElementById('address')).text();
+    if (address == '') {
+      window.alert('No meeting point specified.');
+    } else {
+      geocoder.geocode(
+        { address: address,
+        }, function(results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+            debugger
+            map.setCenter(results[0].geometry.location);
+            map.setZoom(15);
+          } else {
+            window.alert("We're sorry. We were unable to find that location on the map.");
+          }
+        });
+    }
   }
 </script>
 
 <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_KEY']%>&v=3&callback=initMap">
+  src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_KEY']%>&v=3&callback=zoomToArea">
 </script>
