@@ -13,3 +13,6 @@ Rails.application.config.assets.precompile += %w( semantic.css semantic.js )
 
 #homepage jquery
 Rails.application.config.assets.precompile << "homepage.js"
+
+# conversations jquery
+Rails.application.config.assets.precompile << "conversations.js"

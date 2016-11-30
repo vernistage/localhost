@@ -1,54 +1,8 @@
-<div class="ui container segment chat-box">
-  <% if @conversation.host == current_user %>
-
-    <% @conversation.orderMessages.each do |message| %>
-      <% if message.user_id == @conversation.host_id %>
-        <div class="ui padded segment current-user-bubble chat-bubble">
-          <div class="author-info">
-            <%= image_tag message.user.avatar.url(:msg) %>
-          </div>
-          <div class="chat-message">
-            <%= message.body %>
-          </div>
-        </div>
-        <% else %>
-          <div class=" ui padded segment other-user-bubble chat-bubble">
-            <div class="author-info">
-              <%= image_tag message.user.avatar.url(:msg) %>
-              <%= link_to message.user.name, users_show_path(message.user) %>
-            </div>
-            <div class="chat-message">
-              <%= message.body %>
-            </div>
-          </div>
-        <% end %>
-    <% end %>
-
-  <% else %>
-
-    <% @conversation.orderMessages.each do |message| %>
-      <% if message.user_id == @conversation.host_id %>
-        <div class="ui padded segment other-user-bubble chat-bubble">
-          <div class="author-info">
-            <%= image_tag message.user.avatar.url(:msg) %>
-            <%= link_to message.user.name, users_show_path(message.user) %>
-          </div>
-          <div class="chat-message">
-            <%= message.body %>
-          </div>
-        </div>
-        <% else %>
-          <div class=" ui padded segment current-user-bubble chat-bubble">
-            <div class="author-info">
-              <%= image_tag message.user.avatar.url(:msg) %>
-            </div>
-            <div class="chat-message">
-              <%= message.body %>
-            </div>
-          </div>
-        <% end %>
-    <% end %>
-
-  <% end %>
-
+<% @user.conversations.each do |convo| %>
+<div class="conversations-list">
+  <div class="conversation">
+    <%= link_to convo.guest.email, conversations_show_path(convo)  %>
+  </div>
 </div>
+
+<% end %>

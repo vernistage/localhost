@@ -1,0 +1,4 @@
+<%= form_for Message.new, url: messages_create_path, :html => { :id => "send-message-form" } do |f| %>
+  <%= f.text_field :body %>
+  <%= f.submit "Send" %>
+<% end %>
