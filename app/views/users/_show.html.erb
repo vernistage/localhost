@@ -50,10 +50,14 @@
       <% @avg_review = 0 %>
     <% else %>
       <% @avg_review = @reviews.average(:rating).round(2).to_i %>
-      <!--    Raty Stars -->
-      <div class="star-rating" data-score='<%= @avg_review %>'</div>
-      <em><%= "#{@reviews.length} review(s)" %></em>
+
+      <!--Raty Stars -->
+      <div class="ui compact basic segment", style="padding-left:45px;">
+        <div class="star-rating" data-score='<%= @avg_review %>'></div>
+        <em><%= "#{@reviews.length} reviews" %></em>
+      </div>
     <% end %>
+
   </div>
 </div>
 
