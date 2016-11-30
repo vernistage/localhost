@@ -44,5 +44,20 @@
       </div>
     </div>
 
+    <!--    Raty Stars -->
+      <div class="star-rating" data-score='<%= @avg_review %>'</div>
+      <em><%= "#{@reviews.length} review(s)" %></em>
+
   </div>
 </div>
+
+<!-- Raty Script -->
+<script>
+  $('.star-rating').raty({
+    path: '/assets/',
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score')
+    }
+  });
+</script>

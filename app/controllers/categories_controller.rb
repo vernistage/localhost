@@ -18,6 +18,8 @@ class CategoriesController < ApplicationController
       end
     end
     @error = "We're sorry, no hosts yet exist in #{session[:location]} for #{@category.title.downcase}."
+
+
   end
 
 end
