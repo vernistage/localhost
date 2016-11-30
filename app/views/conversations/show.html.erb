@@ -1,7 +1,7 @@
 <%= javascript_include_tag 'conversations' %>
 
 <div id = "chat-box" class='chat-box'>
-  <div class="ui container segment">
+  <div id = "chat-messages" class="ui container segment">
     <% if @conversation.host == current_user %>
 
       <% @conversation.order_messages.each do |message| %>
