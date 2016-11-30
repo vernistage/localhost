@@ -1,9 +1,19 @@
-<div class='review-view'>
-  <h4>Review for <%= @review.host.name %> </h4>
-  <p><%= @review.body %></p>
-  <p align="right"><small>
-    <em><%= Time.at(@review.created_at).strftime("%B %e, %Y") %>, <%= @review.guest.name %>
-    </em>
-    , Rating: <div class="star-rating" data-score= <%= @review.rating %> ></div>
-  </small></p>
-</div>
+<% if Review.find_by(booking_id: booking.id) != nil %>
+  <%= Review.find_by(booking_id: booking.id).body %>
+  <br><div class="star-rating" data-score= <%= Review.find_by(booking_id: booking.id).rating %> ></div><br>
+  <% if booking.guest == current_user %>
+    <%= link_to "Edit Review", edit_review_path(id: Review.find_by(booking_id: booking.id).id)%><br>
+  <% end %>
+<% end %>
+
+<!-- Raty Script -->
+<script>
+  $('.star-rating').raty({
+    path: '/assets/',
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score')
+    }
+  });
+</script>
+

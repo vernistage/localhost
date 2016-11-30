@@ -104,34 +104,17 @@
 
       <h4>Upcoming Trips</h4>
       <% @user.guest_bookings.each do |booking| %>
-        <% if booking.start_time > Time.now %>
-          <%= User.find(booking.host_id).email %><br>
-          <%= booking.meet_location %><br>
-          <%= booking.summary %><br>
-          <%= link_to "Cancel Booking", cancel_booking_path(booking), :method => :delete, :confirm => "You sure?" %><br><br>
-        <% end %>
+        <%= render partial: "bookings/upcoming_guest_booking", locals: {booking: booking} %>
       <% end %>
       <h4>Completed Trips</h4>
       <% @user.guest_bookings.each do |booking| %>
-        <% if booking.end_time < Time.now %>
-          <%= User.find(booking.host_id).email %><br>
-          <%= booking.summary %><br>
-          <%= booking.meet_location %><br>
-
-          <%=link_to "Leave a review", create_review_path(id: booking.id)  %><br><br>
-        <% end %>
+        <%= render partial: "bookings/completed_guest_booking", locals: {booking: booking} %>
       <% end %>
     <% end %>
   <% end %>
    <h4>Your Reviews</h4>
   <% @user.guest_bookings.each do |booking| %>
-    <% if Review.find_by(booking_id: booking.id) != nil %>
-      <%= Review.find_by(booking_id: booking.id).body %>
-      <br><div class="star-rating" data-score= <%= Review.find_by(booking_id: booking.id).rating %> ></div><br>
-      <% if booking.guest == current_user %>
-        <%= link_to "Edit Review", edit_review_path(id: Review.find_by(booking_id: booking.id).id)%><br>
-      <% end %>
-    <% end %>
+    <%= render partial: "reviews/review_view", locals: {booking: booking} %>
   <% end %>
 <% end %>
 
@@ -152,14 +135,4 @@
 </script>
 
 
-<!-- Raty Script -->
-<script>
-  $('.star-rating').raty({
-    path: '/assets/',
-    readOnly: true,
-    score: function() {
-      return $(this).attr('data-score')
-    }
-  });
-</script>
 
