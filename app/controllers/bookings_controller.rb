@@ -7,7 +7,6 @@ class BookingsController < ApplicationController
   def post_booking
 
     times = {"Austin" =>  21600, "Chicago" =>  21600, "New York" => 18000, "Los Angeles" => 28800, "Seattle" =>  28800}
-    binding.pry
     start_time = params[:start_time].to_datetime
     start_time = start_time.utc + times[session[:location]]
 
