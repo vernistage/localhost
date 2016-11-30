@@ -34,6 +34,11 @@ body{
   /*width: 1050px;*/
 }
 
+#map{
+  width: 600px;
+  height: 400px;
+}
+
 .image{
   background-position: center center;
   height: 200px;
