@@ -4,8 +4,10 @@
 <% else %>
   <% @filtered_users.each do |user| %>
     <% @user = user %>
+
     <%= render '/users/show' %>
     <br>
+
   <% end %>
 <% end %>
 

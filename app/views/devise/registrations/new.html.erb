@@ -25,14 +25,13 @@
         <div class="ui left floated basic segment">
           <div class="inline field">
             <%= f.label :location %>
-            <%= select_tag(:location, options_for_select([["Austin", 'Austin'], ["Chicago", 'Chicago'], ["Los Angeles", 'Los Angeles'], ["New York", 'New York'], ["Seattle", 'Seattle']] ), {:class => 'ui search dropdown'})  %>
+            <%= f.select(:homebase, options_for_select([["Austin", 'Austin'], ["Chicago", 'Chicago'], ["Los Angeles", 'Los Angeles'], ["New York", 'New York'], ["Seattle", 'Seattle']] ), {:class => 'ui search dropdown'})  %>
           </div>
         </div>
 
         <div class="ui right floated basic segment">
+          <br>
           <div class="ui toggle checkbox">
-            <br>
-            <br>
             <%= f.check_box :host, checked_value: true, unchecked_value: false %>
             <%= f.label "Become a host" %>
           </div>

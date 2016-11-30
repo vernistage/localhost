@@ -30,29 +30,76 @@ body{
 }
 
 #categories-view{
-  background-color: rgba(255,255,255, 0.9);
+  background-color: rgba(255,255,255, 0.6);
+  /*width: 1050px;*/
 }
 
+.image{
+  background-position: center center;
+  height: 200px;
+  width: 300px;
+  /*opacity: 0.85;*/
+}
+
+.image h2{
+  color: white;
+  font-size: 50px;
+  text-align: center;
+  text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+  line-height: 150px;
+}
+
+/*
 .right-align{
 	text-align: right;
-}
+}*/
 
 #edit-form{
   padding: 2em;
   max-width: 700px !important;
 }
 
-#city-search{
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	margin-left: -172px;
-	margin-top: -31px;
+/*#Google Font*/
+h1#main-header{
+  font-family: 'Droid Sans', sans-serif;
+  font-size: 100px;
+  color: white;
+  text-align: center;
+  line-height: 150px;
+  text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
 }
+
+#city-search{
+	/*position: fixed;*/
+  /*margin:auto;*/
+	margin-top: 20%;
+	/*left: 50%;*/
+	/*margin-left: -172px;*/
+	/*margin-top: -31px;*/
+}
+
+#search-form{
+  opacity: 0.85;
+  border-radius: 6px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 342px;
+/*  border: 2px solid rgb(248, 248, 248);*/
+  font-size: 40px;
+  background-color: rgb(248, 248, 248);
+}
+
+select#location{
+  opacity: 0.85;
+  padding-left: 25px;
+  border: none;
+}
+
 button#search {
 	opacity: 0.85;
-	border-top-right-radius: 6px;
-	border-bottom-right-radius: 6px;
+  height: 51px;
+  width: 92px;
+	border-radius: 6px;
 	border: none;
 	/*background-color: rgb(248, 248, 248);*/
 	background-color: #BABABA;
@@ -63,31 +110,6 @@ button#search {
 
 a:-webkit-any-link {
     text-decoration:none;
-}
-
-.category-box h2{
-	color: white;
-	font-size: 60px;
-	text-align: center;
-	opacity: 0.85;
-
-	line-height: 150px;
-    	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-}
-
-#search-form{
-	opacity: 0.85;
-	border-radius: 6px;
-	margin: auto;
-	border: 2px solid rgb(248, 248, 248);
-	font-size: 40px;
-	background-color: rgb(248, 248, 248);
-}
-
-select#location{
-	opacity: 0.85;
-	padding-left: 25px;
-	border: none;
 }
 
 select {
@@ -265,14 +287,11 @@ h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child {
   margin-right: 1em;
 }
 
-.image{
-  opacity: 90%;
-}
-
 .ui.three.stackable.cards{
-  margin-left: 10em;
+  margin-left: 3em;
 }
 
 .container > .main {
   margin-top: 70px;
 }
+

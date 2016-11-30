@@ -1,13 +1,18 @@
 <%= javascript_include_tag 'homepage' %>
 
 <div class="input-group" id="city-search">
-	<div id="search-form" class="center-block">
-		<%= form_tag("/categories", method: "get") do %>
-			<%= select_tag(:location, options_for_select([["Austin", 'Austin'], ["Chicago", 'Chicago'], ["Los Angeles", 'Los Angeles'], ["New York", 'New York'], ["Seattle", 'Seattle']])) %>
-			<button id="search" type='submit'>
-				<%= fa_icon("search") %>
-			</button>
-		<% end %>
-	</div>
+  <h1 id="main-header"><i class="fa fa-globe" aria-hidden="true"></i> LocalHost</h1>
+  <br>
+  <br>
+  	<div id="search-form">
+  		<%= form_tag("/categories", method: "get", :html => { :id => "search-form" } ) do %>
+  			<%= select_tag(:location, options_for_select([["Austin", 'Austin'], ["Chicago", 'Chicago'], ["Los Angeles", 'Los Angeles'], ["New York", 'New York'], ["Seattle", 'Seattle']])) %>
+  			<button id="search" type='submit'>
+  				<%= fa_icon("search") %>
+  			</button>
+  		<% end %>
+  	</div>
 </div>
+
+<div class='categories-list container'></div>
 

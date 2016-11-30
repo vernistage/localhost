@@ -15,8 +15,9 @@ class ReviewsController < ApplicationController
   end
 
   def update
-    Review.find_by(booking_id: params[:review][:booking_id]).destroy
-    Review.create(params.require(:review).permit(:body, :rating, :booking_id))
+    r = Review.find_by(booking_id: params[:review][:booking_id])
+    r.update(params.require(:review).permit(:body, :rating, :booking_id))
+    r.save
     redirect_to users_show_path(current_user)
   end
 

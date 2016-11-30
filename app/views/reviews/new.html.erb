@@ -1,18 +1,27 @@
 <!-- Need to pass in booking id -->
 <div class="container">
 	<%= form_for @review, url: {action: "create"} do |f| %>
-	   <div class="form-group row">
-	  <%= label_tag(:body, "How was your experience?", class: "col-sm-2 col-form-label") %>
-	  <%= f.text_area :body, size: "60x12", class: "col-sm-10" %>
-	  </div>
-	 <div class="form-group row">
-		<%= label_tag(:rating, "Overall rating:", class: "col-sm-2 col-form-label") %>
-		 <%= f.text_field :rating, class: "col-sm-2" %>
-	  </div>
+		 <div class="field">
+		  <%= label_tag(:body, "How was your experience?") %>
+		  <%= f.text_area :body %>
+		 </div>
+		 <div class="field">
+			<%= label_tag(:rating, "Overall rating:") %>
+			<div id="star-rating"></div>
+		 </div>
+
 	  <%= f.hidden_field :booking_id, value: params[:id]  %>
-	  <div class="form-group row">
+
 	  <%= f.submit "Save", id: "review-save", class: "btn btn-primary offset-sm-2 col-sm-10" %>
-	   </div>
 	<% end %>
 </div>
+
+<!-- Raty Script -->
+
+<script>
+	$('#star-rating').raty({
+		path: '/assets/',
+		scoreName: 'review[rating]'
+	});
+</script>
 

@@ -1,14 +1,32 @@
-<%= form_tag(update_booking_path, method: :put) do %>
-  <%= label_tag 'Tourist email' %>
-  <%= text_field_tag :guest, User.find(@booking.guest_id).email%><br>
-  <%= label_tag 'Starting Location' %>
-  <%= text_field_tag :meet_location, @booking.meet_location %><br>
-  <%= label_tag 'Start Time' %>
-  <%= text_field_tag :start_time, @booking.start_time %><br>
-  <%= label_tag 'End Time' %>
-  <%= text_field_tag :end_time, @booking.end_time %><br>
-  <%= label_tag 'Summary' %>
-  <%= text_area_tag :summary, @booking.summary %><br>
-  <%= hidden_field_tag :booking_id, @booking.id  %>
-  <%= submit_tag %>
-<% end %>
+<% session[:location] = current_user.homebase %>
+<div id="expertise-form" class="ui raised very padded text container segment">
+  <h2 class="ui dividing header">Edit booking</h2>
+  <div class= "ui form">
+    <%= form_for @booking, url: update_booking_path do |f| %>
+      <div class="field">
+        <%= label_tag 'Tourist email' %>
+        <%= f.text_field :guest, :value => @booking.guest.email%>
+      </div>
+      <div class="field">
+        <%= label_tag 'Starting Location' %>
+        <%= f.text_field :meet_location %>
+      </div>
+      <div class="field">
+        <%= label_tag 'Start Time' %>
+        <%= f.datetime_field :start_time %>
+      </div>
+      <div class="field">
+        <%= label_tag 'End Time' %>
+        <%= f.datetime_field :end_time %>
+      </div>
+      <div class="field">
+        <%= label_tag 'Summary' %>
+        <%= f.text_area :summary %>
+        <%= f.hidden_field :id %>
+      </div>
+
+      <%= submit_tag %>
+    <% end %>
+  </div>
+</div>
+

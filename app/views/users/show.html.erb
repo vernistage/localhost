@@ -1,6 +1,7 @@
 <%= render '/users/show' %>
 <br>
-<%= link_to "Display Messages", conversations_index_path(@user) %>
+<% times = {"Austin" =>  21600, "Chicago" =>  21600, "New York" => 18000, "Los Angeles" => 28800, "Seattle" =>  28800} %>
+
 <% if @user.host == true  %>
   <% if current_user == @user %>
 
@@ -16,10 +17,11 @@
           <% if booking.start_time > Time.now %>
             <% flag = false %>
             <%= User.find(booking.guest_id).email %><br>
-            <%= booking.start_time %><br>
+            <%= (booking.start_time - times[session[:location]]).to_s[0..-4] %><br>
             <%= booking.meet_location %><br>
             <%= booking.summary %><br>
-            <%= link_to "Edit Bookings", edit_booking_path(id: booking.id)%><br><br>
+            <%= link_to "Edit Bookings", edit_booking_path(id: booking.id)%><br>
+            <%= link_to "Cancel Booking", cancel_booking_path(booking), :method => :delete, :confirm => "You sure?" %><br>
           <% end %>
         <% end %>
         <% if flag == true%>
@@ -31,7 +33,7 @@
           <% if booking.end_time < Time.now %>
             <% flag = false %>
             <%= User.find(booking.guest_id).email %><br>
-            <%= booking.start_time %><br>
+            <%= (booking.start_time - times[session[:location]]).to_s[0..-4] %><br>
             <%= booking.meet_location %><br>
             <%= booking.summary %><br><br>
           <% end %>
@@ -55,12 +57,13 @@
           <% if booking.start_time > Time.now %>
             <%= User.find(booking.host_id).email %><br>
             <%= booking.summary %><br>
-            <%= booking.meet_location %><br><br>
+            <%= booking.meet_location %><br>
+            <%= link_to "Cancel Booking", cancel_booking_path(booking), :method => :delete, :confirm => "You sure?" %><br><br>
           <% end %>
         <% end %>
         <h5>Completed Trips</h5>
         <% @user.guest_bookings.each do |booking| %>
-          <% if booking.end_time < Time.now && Review.find_by(booking_id: booking.id) == nil%>
+          <% if booking.end_time < Time.now && Review.find_by(booking_id: booking.id) == nil %>
             <%= User.find(booking.host_id).email %><br>
             <%= booking.summary %><br>
             <%= booking.meet_location %><br>
@@ -82,9 +85,9 @@
   <% @user.host_bookings.each do |booking| %>
     <% if Review.find_by(booking_id: booking.id) != nil %>
       <br><%= Review.find_by(booking_id: booking.id).body %>
-      <br><%= Review.find_by(booking_id: booking.id).rating %><br>
+      <br><div class="star-rating" data-score= <%= Review.find_by(booking_id: booking.id).rating %> ></div><br>
       <% if booking.guest == current_user %>
-        <%= link_to "Edit Review", edit_review_path(id: Review.find(booking.id).id)%><br>
+        <%= link_to "Edit Review", edit_review_path(id: Review.find_by(booking_id: booking.id).id)%><br>
       <% end %>
     <% end %>
   <% end %>
@@ -102,18 +105,20 @@
 
       <h4>Upcoming Trips</h4>
       <% @user.guest_bookings.each do |booking| %>
-        <% if booking.start_time > Time.now && Review.find_by(booking_id: booking.id) %>
+        <% if booking.start_time > Time.now %>
           <%= User.find(booking.host_id).email %><br>
           <%= booking.meet_location %><br>
-          <%= booking.summary %><br><br>
+          <%= booking.summary %><br>
+          <%= link_to "Cancel Booking", cancel_booking_path(booking), :method => :delete, :confirm => "You sure?" %><br><br>
         <% end %>
       <% end %>
       <h4>Completed Trips</h4>
       <% @user.guest_bookings.each do |booking| %>
-        <% if booking.end_time > Time.now %>
+        <% if booking.end_time < Time.now %>
           <%= User.find(booking.host_id).email %><br>
           <%= booking.summary %><br>
           <%= booking.meet_location %><br>
+
           <%=link_to "Leave a review", create_review_path(id: booking.id)  %><br><br>
         <% end %>
       <% end %>
@@ -123,7 +128,7 @@
   <% @user.guest_bookings.each do |booking| %>
     <% if Review.find_by(booking_id: booking.id) != nil %>
       <%= Review.find_by(booking_id: booking.id).body %>
-      <br><%= Review.find_by(booking_id: booking.id).rating %><br>
+      <br><div class="star-rating" data-score= <%= Review.find_by(booking_id: booking.id).rating %> ></div><br>
       <% if booking.guest == current_user %>
         <%= link_to "Edit Review", edit_review_path(id: Review.find_by(booking_id: booking.id).id)%><br>
       <% end %>
@@ -131,6 +136,14 @@
   <% end %>
 <% end %>
 
-
-
+<!-- Raty Script -->
+<script>
+  $('.star-rating').raty({
+    path: '/assets/',
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score')
+    }
+  });
+</script>
 
