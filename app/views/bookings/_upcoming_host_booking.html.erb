@@ -1,0 +1,9 @@
+<% if booking.start_time > Time.now %>
+  <% flag = false %>
+  <%= User.find(booking.guest_id).email %><br>
+  <%= (booking.start_time - times[session[:location]]).to_s[0..-4] %><br>
+  <%= booking.meet_location %><br>
+  <%= booking.summary %><br>
+  <%= link_to "Edit Bookings", edit_booking_path(id: booking.id)%><br>
+  <%= link_to "Cancel Booking", cancel_booking_path(booking), :method => :delete, :confirm => "You sure?" %><br>
+<% end %>
