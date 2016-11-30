@@ -1,6 +1,6 @@
 <%= render '/users/show' %>
 <br>
-
+<% times = {"Austin" =>  21600, "Chicago" =>  21600, "New York" => 18000, "Los Angeles" => 28800, "Seattle" =>  28800} %>
 <% if @user.host == true  %>
   <% if current_user == @user %>
 
@@ -16,7 +16,7 @@
           <% if booking.start_time > Time.now %>
             <% flag = false %>
             <%= User.find(booking.guest_id).email %><br>
-            <%= booking.start_time %><br>
+            <%= (booking.start_time - times[session[:location]]).to_s[0..-4] %><br>
             <%= booking.meet_location %><br>
             <%= booking.summary %><br>
             <%= link_to "Edit Bookings", edit_booking_path(id: booking.id)%><br>
@@ -32,7 +32,7 @@
           <% if booking.end_time < Time.now %>
             <% flag = false %>
             <%= User.find(booking.guest_id).email %><br>
-            <%= booking.start_time %><br>
+            <%= (booking.start_time - times[session[:location]]).to_s[0..-4] %><br>
             <%= booking.meet_location %><br>
             <%= booking.summary %><br><br>
           <% end %>

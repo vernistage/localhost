@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get '/bookings/request_booking' => 'bookings#request_booking', :as => :request_booking
   post '/bookings/post_booking' => 'bookings#post_booking', :as => :post_booking
   get '/bookings/edit_booking' => 'bookings#edit_booking', :as => :edit_booking
-  put '/bookings/update_booking' => 'bookings#update_booking', :as => :update_booking
+  patch '/bookings/update_booking' => 'bookings#update_booking', :as => :update_booking
   delete '/bookings/:id' => 'bookings#cancel', :as => :cancel_booking
 
 
