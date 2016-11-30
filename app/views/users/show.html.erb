@@ -3,87 +3,71 @@
   <!-- Begin time logic -->
   <% times = {"Austin" =>  21600, "Chicago" =>  21600, "New York" => 18000, "Los Angeles" => 28800, "Seattle" =>  28800} %>
   <!-- Begin host view -->
-  <% if @user.host == true  %>
-    <% if current_user == @user %>
-      <!-- Begin host bookings-->
-      <h4 class="your-bookings">Your Bookings</h4>
-      <%= link_to "Schedule a booking", request_booking_path(@user)  %>
-        <% if @user.host_bookings.blank? %>
-          <p>You have no bookings scheduled.</p>
-        <% else %>
-           <!-- Begin upcoming host bookings-->
-          <h5>Upcoming Bookings</h5>
-            <% flag = true %>
-            <% @user.host_bookings.each do |booking| %>
-              <%= render partial: "bookings/upcoming_host_booking", locals: {booking: booking, flag: flag} %>
-            <% end %>
-          <% if flag == true%>
-            <p>You have no upcoming trips</p>
-          <% end %>
-          <!-- Begin completed host bookings-->
-          <h5>Completed Bookings</h5>
-          <% flag = true %>
-          <% @user.host_bookings.each do |booking| %>
-            <%= render partial: "bookings/completed_host_booking", locals: {booking: booking, flag: flag} %>
-          <% end %>
-          <% if flag == true %>
-            <p>None.</p>
-          <% end %>
+  <% if @user.host == true && current_user == @user %>
+    <!-- Begin host bookings-->
+    <h4 class="your-bookings">Your Bookings</h4><br>
+    <%= link_to "Schedule a booking", request_booking_path(@user)  %>
+    <% if @user.host_bookings.blank? %>
+      <p>You have no bookings scheduled.</p>
+    <% else %>
+       <!-- Begin upcoming host bookings-->
+      <h5>Upcoming bookings</h5>
+        <% flag = true %>
+        <% @user.host_bookings.each do |booking| %>
+          <%= render partial: "bookings/upcoming_host_booking", locals: {booking: booking, flag: flag, times: times} %>
         <% end %>
-     <!-- Begin Guest trips by Host -->
-      <h4>Your Trips</h4>
-        <% if @user.guest_bookings.blank? %>
-          <p>You have no trips booked.</p>
-        <% else %>
-        <!-- Begin Guest upcoming trips by Host -->
-          <h5>Upcoming Trips</h5>
-          <% @user.guest_bookings.each do |booking| %>
-            <%= render partial: "bookings/upcoming_guest_booking", locals: {booking: booking} %>
-          <% end %>
-          <!-- Begin Guest completed trips by Host -->
-          <h5>Completed Trips</h5>
-          <% @user.guest_bookings.each do |booking| %>
-            <% if Review.find_by(booking_id: booking.id) == nil %>
-              <%= render partial: "bookings/completed_guest_booking", locals: {booking: booking} %>
-            <% end %>
-          <% end %>
-        <% end %>
-    <% else  %>
-    <!-- What is this-->
-      <h4>Request a Booking </h4>
-      <p>Select a booking</p>
-    <% end %>
-    <!-- Reviews host has left for another host -->
-    <h4>Reviews</h4>
-    <% @user.host_bookings.each do |booking| %>
-      <%= render partial: "reviews/review_view", locals: {booking: booking} %>
-    <% end %>
-  <!-- Begin Guest Trips -->
-  <% elsif @user.host == false && current_user == @user %>
-    <h3>Your Trips</h3>
-      <% if @user.guest_bookings.blank? %>
-        <p>You have no trips booked.</p>
-      <% else %>
-        <!-- Begin Guest Upcoming Trips -->
-        <h4>Upcoming Trips</h4>
-        <% @user.guest_bookings.each do |booking| %>
-          <%= render partial: "bookings/upcoming_guest_booking", locals: {booking: booking} %>
-        <% end %>
-        <!-- Begin Guest Completed Trips -->
-        <h4>Completed Trips</h4>
-        <% @user.guest_bookings.each do |booking| %>
-          <%= render partial: "bookings/completed_guest_booking", locals: {booking: booking} %>
-        <% end %>
+      <% if flag == true%>
+        <p>You have no upcoming trips</p>
       <% end %>
+      <!-- Begin completed host bookings-->
+      <h5>Completed bookings</h5>
+      <% flag = true %>
+      <% @user.host_bookings.each do |booking| %>
+        <%= render partial: "bookings/completed_host_booking", locals: {booking: booking, flag: flag} %>
+      <% end %>
+      <% if flag == true %>
+        <p>None.</p>
+      <% end %>
+    <% end %>
+  <% end %>
+  <!-- Begin Guest Trips -->
+  <% if current_user == @user %>
+    <h3>Your Trips</h3>
+    <% if @user.guest_bookings.blank? %>
+      <p>You have no trips booked.</p>
+    <% else %>
+      <!-- Begin Guest Upcoming Trips -->
+      <h4>Upcoming Trips</h4>
+      <% @user.guest_bookings.each do |booking| %>
+        <%= render partial: "bookings/upcoming_guest_booking", locals: {booking: booking} %>
+      <% end %>
+      <!-- Begin Guest Completed Trips -->
+      <h4>Completed Trips</h4>
+      <% @user.guest_bookings.each do |booking| %>
+        <%= render partial: "bookings/completed_guest_booking", locals: {booking: booking} %>
+      <% end %>
+    <% end %>
     <!-- Begin Guest Reviews-->
      <h4>Your Reviews</h4>
     <% @user.guest_bookings.each do |booking| %>
       <%= render partial: "reviews/review_view", locals: {booking: booking} %>
     <% end %>
   <% end %>
-
-  <%= render "bookings/meet_location_map" %>
+  <div id="map"></div>
 </div>
 
 
+<script>
+  var map;
+  function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 40.7413549, lng: -73.9980244},
+      zoom: 13
+    });
+  }
+</script>
+
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_KEY']%>&v=3&callback=initMap">
+</script>
 
