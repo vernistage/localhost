@@ -1,4 +1,4 @@
-<h2><%= Conversation.all.length %></h2>
+
 <% guest_convos = Conversation.where(guest_id: @user.id) %>
 <% host_convos = Conversation.where(host_id: @user.id) %>
 <% host_convos.each do |convo| %>
