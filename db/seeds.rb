@@ -199,25 +199,37 @@ Category.create!(title: "History", description: "Pay homage to the past", image:
     UserTag.create!(host_id: 6, tag_id: 27)
     UserTag.create!(host_id: 6, tag_id: 28)
   #Host 7
-    UserCategory.create!(host_id: 6, category_id: 2) #user_category_id = 13
-    UserCategory.create!(host_id: 6, category_id: 4) #user_category_id =14
-    Tag.create!(specialty: "Psychedelic Rock", category_id: 2) #tag_id = 21
-    UserTag.create!(host_id: 6, tag_id: 30)
-    UserTag.create!(host_id: 6, tag_id: 31)
-    UserTag.create!(host_id: 6, tag_id: 31)
-    UserTag.create!(host_id: 6, tag_id: 21)
-    UserTag.create!(host_id: 6, tag_id: 13)
-    UserTag.create!(host_id: 6, tag_id: 11)
+    UserCategory.create!(host_id: 6, category_id: 4) #user_category_id = 13
+    UserCategory.create!(host_id: 6, category_id: 5)
+    UserCategory.create!(host_id: 6, category_id: 6) #user_category_id =14
+    Tag.create!(specialty: "LGBTQ niches", category_id: 4)
+    Tag.create!(specialty: "Queer clubs", category_id: 4)
+    Tag.create!(specialty: "Craft fairs", category_id: 5)
+    Tag.create!(specialty: "Local artisans", category_id: 5)
+    Tag.create!(specialty: "Walnut creek", category_id: 6)
+    Tag.create!(specialty: "Running around Lady Bird Lake", category_id: 6) #tag_id = 21
+    UserTag.create!(host_id: 7, tag_id: 29)
+    UserTag.create!(host_id: 7, tag_id: 30)
+    UserTag.create!(host_id: 7, tag_id: 31)
+    UserTag.create!(host_id: 7, tag_id: 32)
+    UserTag.create!(host_id: 7, tag_id: 33)
+    UserTag.create!(host_id: 7, tag_id: 34)
   #Host 8
-    UserCategory.create!(host_id: 6, category_id: 2) #user_category_id = 13
-    UserCategory.create!(host_id: 6, category_id: 4) #user_category_id =14
-    Tag.create!(specialty: "Psychedelic Rock", category_id: 2) #tag_id = 21
-    UserTag.create!(host_id: 6, tag_id: 19)
-    UserTag.create!(host_id: 6, tag_id: 20)
-    UserTag.create!(host_id: 6, tag_id: 9)
-    UserTag.create!(host_id: 6, tag_id: 21)
-    UserTag.create!(host_id: 6, tag_id: 13)
-    UserTag.create!(host_id: 6, tag_id: 11)
+    UserCategory.create!(host_id: 6, category_id: 7) #user_category_id = 13
+    UserCategory.create!(host_id: 6, category_id: 8)
+    UserCategory.create!(host_id: 6, category_id: 9) #user_category_id =14
+    Tag.create!(specialty: "Austin City Limits festival", c8tegory_id: 7)
+    Tag.create!(specialty: "Pecan Street Festival", category_id: 7)
+    Tag.create!(specialty: "UT Volleyball", category_id: 8)
+    Tag.create!(specialty: "Kayaking on the Lake", category_id: 8)
+    Tag.create!(specialty: "Willie Nelson", category_id: 9)
+    Tag.create!(specialty: "Texas State Capitol building", category_id: 9) #tag_id = 21
+    UserTag.create!(host_id: 8, tag_id: 35)
+    UserTag.create!(host_id: 8, tag_id: 36)
+    UserTag.create!(host_id: 8, tag_id: 37)
+    UserTag.create!(host_id: 8, tag_id: 38)
+    UserTag.create!(host_id: 8, tag_id: 39)
+    UserTag.create!(host_id: 8, tag_id: 40)
 
     #City 2 Seattle
 
