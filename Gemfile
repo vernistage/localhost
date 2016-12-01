@@ -28,6 +28,7 @@ gem 'ratyrate'
 # for our icons
 gem "font-awesome-rails"
 gem 'geocoder'
+gem 'aws-sdk', '<2.0'
 
 group :development, :test do
   gem 'rspec-rails'
