@@ -20,13 +20,20 @@
        <!-- Begin upcoming host bookings-->
       <div class="ui segments">
         <h5>Upcoming bookings</h5>
+        <% flag = true %>
         <% @user.host_bookings.each do |booking| %>
           <% if booking.end_time > Time.now %>
+            <% flag = false %>
             <div class="ui secondary segment">
               <%= render partial: "bookings/upcoming_host_booking", locals: {booking: booking, times: times} %>
             </div>
           <% end %>
         <% end %>
+        <div class="ui secondary segment">
+          <% if flag == true%>
+            <p>You have no upcoming trips</p>
+          <% end %>
+        </div>
       </div>
       <!-- Begin completed host bookings-->
       <div class="ui segments">
@@ -34,10 +41,16 @@
         <% flag = true %>
         <% @user.host_bookings.each do |booking| %>
           <% if booking.end_time < Time.now %>
+            <% flag = false %>
             <div class="ui secondary segment">
               <%= render partial: "bookings/completed_host_booking", locals: {booking: booking, times: times, flag: flag} %>
             </div>
           <% end %>
+        <% end %>
+        <% if flag == true %>
+          <div class="ui secondary segment">
+            <p>You have no recent trips</p>
+          </div>
         <% end %>
       </div>
     <% end %>
@@ -51,7 +64,8 @@
       </div>
     </h2>
     <% if @user.guest_bookings.blank? %>
-      <center><em>You currently have no trips booked.</em></center>
+      <center><em>You currently have no trips booked.</em><br><br>
+      <%= link_to "Book a trip", root_path %></center>
     <% else %>
       <!-- Begin Guest Upcoming Trips -->
       <div class="ui segments">
