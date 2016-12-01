@@ -177,6 +177,71 @@ div.user-bio-block {
   margin-right: 30px;
 }
 
+/* CHAT CSS -------------------------------------------*/
+
+.response-chat-thingy{
+  float: right;
+}
+
+/**/
+
+.chat-box > .segment{
+  width: 100%;
+  height: 820px;
+  margin: auto;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+.ui.padded.segment.chat-bubble {
+  clear: both;
+  display: inline-block;
+  margin: 5px;
+  padding: 10px;
+  color: white;
+  border: none;
+  box-shadow: 2px 6px 18px -6px rgba(43,43,43,.8);
+  font-size: 1.8em;
+}
+
+.ui.padded.segment.current-user-bubble{
+  float: right;
+  background-color: #BFD7EA;
+  margin-left: 50%;
+}
+
+.ui.padded.segment.current-user-bubble > .author-info {
+  float: right;
+  position: relative;
+}
+
+.ui.padded.segment > .author-info > img {
+  margin-bottom: 5px;
+  display: block;
+}
+
+.ui.padded.segment > .author-info {
+  font-size: .75em;
+  display: inline-block;
+}
+
+.ui.padded.segment > .author-info > a {
+  color: white;
+}
+
+.chat-message {
+  display: inline;
+  margin: 0 15px;
+  vertical-align: top;
+  line-height: 1.2em;
+}
+
+.ui.padded.segment.other-user-bubble{
+  display: block;
+  background-color: #839788;
+  margin-right: 50%;
+}
+
 
 /*Semantic UI Overrides*/
 .ui.menu {

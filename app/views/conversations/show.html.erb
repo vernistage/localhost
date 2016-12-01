@@ -1,0 +1,62 @@
+<div id = "chat-box" class='chat-box'>
+  <div id = "chat-messages" class="ui container segment">
+    <% if @conversation.host == current_user %>
+
+      <% @conversation.order_messages.each do |message| %>
+        <% if message.user_id == @conversation.host_id %>
+          <div class="ui padded segment current-user-bubble chat-bubble">
+            <div class="author-info">
+              <%= image_tag message.user.avatar.url(:msg) %>
+            </div>
+            <div class="chat-message">
+              <%= message.body %>
+            </div>
+          </div>
+        <% else %>
+            <div class=" ui padded segment other-user-bubble chat-bubble">
+              <div class="author-info">
+                <%= image_tag message.user.avatar.url(:msg) %>
+                <%= link_to message.user.name, users_show_path(message.user) %>
+              </div>
+              <div class="chat-message">
+                <%= message.body %>
+              </div>
+            </div>
+          <% end %>
+      <% end %>
+
+    <% else %>
+
+      <% @conversation.order_messages.each do |message| %>
+        <% if message.user_id == @conversation.host_id %>
+          <div class="ui padded segment other-user-bubble chat-bubble">
+            <div class="author-info">
+              <%= image_tag message.user.avatar.url(:msg) %>
+              <%= link_to message.user.name, users_show_path(message.user) %>
+            </div>
+            <div class="chat-message">
+              <%= message.body %>
+            </div>
+          </div>
+          <% else %>
+            <div class=" ui padded segment current-user-bubble chat-bubble">
+              <div class="author-info">
+                <%= image_tag message.user.avatar.url(:msg) %>
+              </div>
+              <div class="chat-message">
+                <%= message.body %>
+              </div>
+            </div>
+          <% end %>
+      <% end %>
+
+    <% end %>
+
+  </div>
+
+<!-- this is making chatbox render twice -->
+    <div class='response-chat-thingy'>
+      <%= render '/messages/new' %>
+    </div>
+
+</div>

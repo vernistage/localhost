@@ -1,0 +1,4 @@
+<% messages.each do |message| %>
+  <%= render partial: '/messages/guest_show', locals: {message: message, id: count } %>
+  <!-- count += 1 -->
+<% end   %>

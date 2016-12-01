@@ -36,6 +36,21 @@ ActiveRecord::Schema.define(version: 20161130231911) do
     t.string   "image"
   end
 
+  create_table "conversations", force: :cascade do |t|
+    t.integer  "host_id"
+    t.integer  "guest_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer  "conversation_id"
+    t.integer  "user_id"
+    t.text     "body"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.integer  "booking_id"
     t.text     "body"
@@ -56,6 +71,13 @@ ActiveRecord::Schema.define(version: 20161130231911) do
     t.integer  "category_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "user_conversations", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "conversation_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "user_tags", force: :cascade do |t|

@@ -17,6 +17,7 @@ class ReviewsController < ApplicationController
   def update
     r = Review.find_by(booking_id: params[:review][:booking_id])
     r.update(params.require(:review).permit(:body, :rating, :booking_id))
+    r.save
     redirect_to users_show_path(current_user)
   end
 
