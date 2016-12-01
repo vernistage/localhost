@@ -91,7 +91,7 @@ Rails.application.configure do
   # Paperclip to AWS
   config.paperclip_defaults = {
     :storage => :s3,
-    :s3_region => 'US Standard',
+    :s3_region => 'us-east-1',
 
   s3_credentials: {
     bucket: ENV.fetch('S3_BUCKET_NAME'),
