@@ -39,7 +39,7 @@ body{
 }
 
 #address{
-  padding-left: 43px;
+  padding-left: 45px;
 }
 
 #longitude{
@@ -117,7 +117,7 @@ h1#main-header{
   width: 342px;
 /*  border: 2px solid rgb(248, 248, 248);*/
   font-size: 40px;
-  background-color: rgb(248, 248, 248);
+/*  background-color: rgb(248, 248, 248);*/
 }
 
 select#location{
@@ -325,9 +325,12 @@ h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child {
   margin-left: 1em;
   margin-right: 1em;
 }
+.ui.cards{
+  padding-bottom: 70px;
+}
 
 .ui.three.stackable.cards{
-  margin-left: 3em;
+  margin-left: 6em;
 }
 
 .container > .main {
