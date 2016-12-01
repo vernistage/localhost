@@ -1,6 +1,7 @@
 <% @review = Review.find_by(booking_id: booking.id) %>
 <% if @review != nil %>
   <div class="ui secondary segment">
+    Review for: <%= @review.host.name %><br>
     <%= @review.body %>
     <br><div class="star-rating" data-score= <%= Review.find_by(booking_id: booking.id).rating %> >
     </div><br>
