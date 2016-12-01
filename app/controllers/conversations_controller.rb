@@ -1,10 +1,16 @@
 class ConversationsController < ApplicationController
 
   def index
-    @user = User.find(params[:id])
+    @user = current_user
+  end
+
+  def create
+    @conversation = Conversation.find_or_create_by(host_id: params[:id], guest_id: current_user.id)
+    redirect_to conversations_show_path(@conversation)
   end
 
   def show
+    # @conversation = Conversation.find_or_create_by(host_id: params[:id], guest_id: current_user.id)
     @conversation = Conversation.find(params[:id])
   end
 
