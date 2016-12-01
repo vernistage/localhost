@@ -1,5 +1,5 @@
 <h2>test</h2>
-<%= @user.conversations %>
+<% user_convos = (Conversation.where(guest_id: @user.id) + Conversation.where(host_id: @user.id) %>
 <% @user.conversations.each do |convo| %>
 <div class="conversations-list">
   <div class="conversation">
