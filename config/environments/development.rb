@@ -12,6 +12,12 @@ Rails.application.configure do
   # Show full error reports.
   config.consider_all_requests_local = true
 
+
+
+
+
+
+
   # Enable/disable caching. By default caching is disabled.
   if Rails.root.join('tmp/caching-dev.txt').exist?
     config.action_controller.perform_caching = true
@@ -53,5 +59,20 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  # # Paperclip to AWS
+  # config.paperclip_defaults = {
+  #   :storage => :s3,
+  #   :s3_region => 'US Standard',
+
+  #   s3_credentials: {
+  #     bucket: 'localhost-store',
+  #     access_key_id:'AKIAIBGXFK2G5CCNOMDA',
+  #     secret_access_key: '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',
+  #     # s3_region: ENV.fetch('AWS_REGION'),
+  #   }
+  # }
+
+
 
 end
