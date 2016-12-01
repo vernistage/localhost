@@ -10,9 +10,10 @@
 /test/version_tmp/
 
 # Ignore all logfiles and tempfiles.
-  /log/*.log
+  /log/*
   /tmp
   /tmp/cache/assets
+  .DS_Store
 
 # Used by dotenv library to load environment variables.
   .env
