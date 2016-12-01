@@ -12,10 +12,9 @@
         <% elsif current_user.host == false %>
           <h6><%= link_to "Become A Host", become_host_path %></h6>
         <% end %>
-
+        <h6><%= link_to "Messages", conversations_index_path(@user) %></h6>
       <% else %>
-
-        <h6><%= link_to "Contact #{@user.name}", conversations_show_path(@user) %></h6>
+        <h6><%= link_to "Contact #{@user.name}", conversations_create_path(@user) %></h6>
       <% end %>
     </div>
 
