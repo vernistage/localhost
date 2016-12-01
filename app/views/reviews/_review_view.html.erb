@@ -1,11 +1,13 @@
 <% @review = Review.find_by(booking_id: booking.id) %>
 <% if @review != nil %>
-  <%= Review.find_by(booking_id: booking.id).body %>
-  <br><div class="star-rating" data-score= <%= Review.find_by(booking_id: booking.id).rating %> >
-  </div><br>
-  <% if booking.guest == current_user %>
-    <%= link_to "Edit Review", edit_review_path(id: Review.find_by(booking_id: booking.id).id)%><br>
-  <% end %>
+  <div class="ui secondary segment">
+    <%= @review.body %>
+    <br><div class="star-rating" data-score= <%= Review.find_by(booking_id: booking.id).rating %> >
+    </div><br>
+    <% if booking.guest == current_user %>
+      <%= link_to "Edit Review", edit_review_path(id: Review.find_by(booking_id: booking.id).id)%><br>
+    <% end %>
+  </div>
 <% end %>
 
 <!-- Raty Script -->
