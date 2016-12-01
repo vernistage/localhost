@@ -1,9 +1,9 @@
-<div class=" ui padded segment other-user-bubble chat-bubble">
+<div class=" ui padded segment other-user-bubble chat-bubble" id = <%= id  %>>
   <div class="author-info">
-                <%= image_tag message.user.avatar.url(:msg) %>
-                <%= link_to message.user.name, users_show_path(message.user) %>
-              </div>
-              <div class="chat-message">
-                <%= message.body %>
-              </div>
-            </div>
+    <%= image_tag message.user.avatar.url(:msg) %>
+    <%= link_to message.user.name, users_show_path(message.user) %>
+  </div>
+  <div class="chat-message">
+    <%= message.body %>
+  </div>
+</div>
