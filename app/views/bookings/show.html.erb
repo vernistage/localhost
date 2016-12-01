@@ -1,0 +1,44 @@
+<% @booking.geocode %>
+
+<div class="ui segment">
+  Host: <%= @host.name %><br>
+  Guest: <%= @guest.name %><br>
+  Details: <%= @booking.summary %><br>
+  Meet point specified by host: <div id="address"><%= @booking.meet_location %></div><br><br>
+  <div id="longitude"><%= @booking.longitude %></div>
+  <div id="latitude"><%= @booking.latitude %></div>
+
+  <h2><%= link_to "Back", controller: "users", action: "show", id: current_user %></h2>
+  <br>
+  <br>
+  <!-- Google Maps Begin -->
+  <div id="map"></div>
+</div>
+
+<script>
+  var map;
+  var latitude = parseFloat(document.getElementById('latitude').innerHTML)
+  var longitude = parseFloat(document.getElementById('longitude').innerHTML)
+  function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: latitude, lng: longitude},
+      zoom: 13
+    });
+    var meetPoint = {lat: latitude, lng: longitude};
+    var marker = new google.maps.Marker({
+      position:meetPoint,
+      map: map,
+      title: 'MARKER'
+    });
+    var infowindow = new google.maps.InfoWindow({
+      content: "I have more to say"
+    })
+    marker.addListener('click', function(){
+      infowindow.open(map, marker);
+    });
+  }
+</script>
+
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_KEY']%>&v=3&callback=initMap">
+</script>

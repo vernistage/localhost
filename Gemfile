@@ -26,7 +26,7 @@ gem 'ratyrate'
 # brew install imagemagick
 # for our icons
 gem "font-awesome-rails"
-
+gem 'geocoder'
 
 group :development, :test do
   gem 'rspec-rails'

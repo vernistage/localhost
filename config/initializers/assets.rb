@@ -11,5 +11,8 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 Rails.application.config.assets.precompile += %w( semantic.css semantic.js )
 
+#Google maps functionality
+
+
 #homepage jquery
 Rails.application.config.assets.precompile << "homepage.js"

@@ -1,148 +1,120 @@
 <%= render '/users/show' %>
-<br>
-<% times = {"Austin" =>  21600, "Chicago" =>  21600, "New York" => 18000, "Los Angeles" => 28800, "Seattle" =>  28800} %>
-<% if @user.host == true  %>
-  <% if current_user == @user %>
-
-    <h4 class="your-bookings">Your Bookings</h4>
-    <%= link_to "Schedule a booking", request_booking_path(@user)  %>
-
-      <% if @user.host_bookings.blank? %>
-        <p>You have no bookings scheduled.</p>
-      <% else %>
-        <h5>Upcoming Bookings</h5>
-          <% flag = true %>
-          <% @user.host_bookings.each do |booking| %>
-          <% if booking.start_time > Time.now %>
+<div class="ui segment">
+  <!-- Begin time logic -->
+  <% times = {"Austin" =>  21600, "Chicago" =>  21600, "New York" => 18000, "Los Angeles" => 28800, "Seattle" =>  28800} %>
+  <!-- Begin host view -->
+  <% if @user.host == true && current_user == @user %>
+    <!-- Begin host bookings-->
+    <h2 class="ui center aligned header">
+      <i class="fa fa-address-card-o" aria-hidden="true"></i>
+      <div class="content">
+        Your Bookings
+      </div>
+    </h2>
+    <center>
+      <%= link_to "Schedule a booking", request_booking_path(@user) %>
+    </center>
+    <% if @user.host_bookings.blank? %>
+      <center><em>You have no bookings scheduled.</em></center>
+    <% else %>
+       <!-- Begin upcoming host bookings-->
+      <div class="ui segments">
+        <h5>Upcoming bookings</h5>
+        <% flag = true %>
+        <% @user.host_bookings.each do |booking| %>
+          <% if booking.end_time > Time.now %>
             <% flag = false %>
-            <%= User.find(booking.guest_id).email %><br>
-            <%= (booking.start_time - times[session[:location]]).to_s[0..-4] %><br>
-            <%= booking.meet_location %><br>
-            <%= booking.summary %><br>
-            <%= link_to "Edit Bookings", edit_booking_path(id: booking.id)%><br>
-            <%= link_to "Cancel Booking", cancel_booking_path(booking), :method => :delete, :confirm => "You sure?" %><br>
+            <div class="ui secondary segment">
+              <%= render partial: "bookings/upcoming_host_booking", locals: {booking: booking, times: times} %>
+            </div>
           <% end %>
         <% end %>
-        <% if flag == true%>
-          <p>You have no upcoming trips</p>
-        <% end %>
-        <h5>Recent Bookings</h5>
+        <div class="ui secondary segment">
+          <% if flag == true%>
+            <p>You have no upcoming trips</p>
+          <% end %>
+        </div>
+      </div>
+      <!-- Begin completed host bookings-->
+      <div class="ui segments">
+        <h5>Completed bookings</h5>
         <% flag = true %>
         <% @user.host_bookings.each do |booking| %>
           <% if booking.end_time < Time.now %>
             <% flag = false %>
-            <%= User.find(booking.guest_id).email %><br>
-            <%= (booking.start_time - times[session[:location]]).to_s[0..-4] %><br>
-            <%= booking.meet_location %><br>
-            <%= booking.summary %><br><br>
+            <div class="ui secondary segment">
+              <%= render partial: "bookings/completed_host_booking", locals: {booking: booking, times: times, flag: flag} %>
+            </div>
           <% end %>
         <% end %>
         <% if flag == true %>
-          <p>You have no recent trips</p>
+          <div class="ui secondary segment">
+            <p>You have no recent trips</p>
+          </div>
         <% end %>
-      <% end %>
-
-
-
-
-    <h4>Your Trips</h4>
-      <% if @user.guest_bookings.blank? %>
-        <p>You have no trips booked.</p>
-      <% else %>
-
-
-        <h5>Upcoming Trips</h5>
+      </div>
+    <% end %>
+  <% end %>
+  <!-- Begin Guest Trips -->
+  <% if current_user == @user %>
+    <h2 class="ui center aligned  header">
+      <i class="fa fa-plane" aria-hidden="true"></i>
+      <div class="content">
+        Your Trips
+      </div>
+    </h2>
+    <% if @user.guest_bookings.blank? %>
+      <center><em>You currently have no trips booked.</em><br><br>
+      <%= link_to "Book a trip", root_path %></center>
+    <% else %>
+      <!-- Begin Guest Upcoming Trips -->
+      <div class="ui segments">
+        <h4>Upcoming Trips</h4>
+        <% flag = true %>
         <% @user.guest_bookings.each do |booking| %>
           <% if booking.start_time > Time.now %>
-            <%= User.find(booking.host_id).email %><br>
-            <%= booking.summary %><br>
-            <%= booking.meet_location %><br>
-            <%= link_to "Cancel Booking", cancel_booking_path(booking), :method => :delete, :confirm => "You sure?" %><br><br>
+            <% flag = false %>
+            <div class="ui secondary segment">
+              <%= render partial: "bookings/upcoming_guest_booking", locals: {booking: booking, times:times} %>
+            </div>
           <% end %>
         <% end %>
-        <h5>Completed Trips</h5>
-        <% @user.guest_bookings.each do |booking| %>
-          <% if booking.end_time < Time.now && Review.find_by(booking_id: booking.id) == nil %>
-            <%= User.find(booking.host_id).email %><br>
-            <%= booking.summary %><br>
-            <%= booking.meet_location %><br>
-            <%=link_to "Leave a review", create_review_path(id: booking.id)  %><br>
-          <% end %>
+        <% if flag == true %>
+          <div class="ui secondary segment">
+            <p>You have no upcoming trips</p>
+          </div>
         <% end %>
-      <% end %>
-
-
-  <% else  %>
-      <h4>Request a Booking </h4>
-      <p>Select a booking</p>
-  <% end %>
-
-
-
-
-  <h4>Reviews</h4>
-  <% @user.host_bookings.each do |booking| %>
-    <% if Review.find_by(booking_id: booking.id) != nil %>
-      <br><%= Review.find_by(booking_id: booking.id).body %>
-      <br><div class="star-rating" data-score= <%= Review.find_by(booking_id: booking.id).rating %> ></div><br>
-      <% if booking.guest == current_user %>
-        <%= link_to "Edit Review", edit_review_path(id: Review.find_by(booking_id: booking.id).id)%><br>
-      <% end %>
-    <% end %>
-  <% end %>
-
-
-<% elsif @user.host == false %>
-
-
-  <% if current_user == @user %>
-
-  <h3>Your Trips</h3>
-    <% if @user.guest_bookings.blank? %>
-      <p>You have no trips booked.</p>
-    <% else %>
-
-      <h4>Upcoming Trips</h4>
-      <% @user.guest_bookings.each do |booking| %>
-        <% if booking.start_time > Time.now %>
-          <%= User.find(booking.host_id).email %><br>
-          <%= booking.meet_location %><br>
-          <%= booking.summary %><br>
-          <%= link_to "Cancel Booking", cancel_booking_path(booking), :method => :delete, :confirm => "You sure?" %><br><br>
-        <% end %>
-      <% end %>
+      </div>
+      <!-- Begin Guest Completed Trips -->
+      <div class="ui segments">
       <h4>Completed Trips</h4>
-      <% @user.guest_bookings.each do |booking| %>
-        <% if booking.end_time < Time.now %>
-          <%= User.find(booking.host_id).email %><br>
-          <%= booking.summary %><br>
-          <%= booking.meet_location %><br>
-
-          <%=link_to "Leave a review", create_review_path(id: booking.id)  %><br><br>
+      <% flag = true %>
+        <% @user.guest_bookings.each do |booking| %>
+          <% if booking.end_time < Time.now %>
+            <% flag = false %>
+            <div class="ui secondary segment">
+              <%= render partial: "bookings/completed_guest_booking", locals: {booking: booking, times:times} %>
+            </div>
+          <% end %>
         <% end %>
-      <% end %>
+        <% if flag == true %>
+          <div class="ui secondary segment">
+            <p>None</p>
+          </div>
+        <% end %>
+      </div>
+      <!-- Begin Guest Reviews-->
+      <div class="ui segments">
+        <h4>Your Reviews</h4>
+        <% flag = true %>
+        <% @user.guest_bookings.each do |booking| %>
+          <% flag = false %>
+            <%= render partial: "reviews/review_view", locals: {booking: booking, times:times} %>
+        <% end %>
+      </div>
     <% end %>
   <% end %>
-   <h4>Your Reviews</h4>
-  <% @user.guest_bookings.each do |booking| %>
-    <% if Review.find_by(booking_id: booking.id) != nil %>
-      <%= Review.find_by(booking_id: booking.id).body %>
-      <br><div class="star-rating" data-score= <%= Review.find_by(booking_id: booking.id).rating %> ></div><br>
-      <% if booking.guest == current_user %>
-        <%= link_to "Edit Review", edit_review_path(id: Review.find_by(booking_id: booking.id).id)%><br>
-      <% end %>
-    <% end %>
-  <% end %>
-<% end %>
+</div>
 
-<!-- Raty Script -->
-<script>
-  $('.star-rating').raty({
-    path: '/assets/',
-    readOnly: true,
-    score: function() {
-      return $(this).attr('data-score')
-    }
-  });
-</script>
+
 

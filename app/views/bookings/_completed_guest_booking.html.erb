@@ -1,0 +1,4 @@
+<%= User.find(booking.host_id).email %><br>
+<%= booking.summary %><br>
+<%= booking.meet_location %><br>
+<%=link_to "Leave a review", create_review_path(id: booking.id)  %><br><br>
