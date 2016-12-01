@@ -2,5 +2,5 @@
 <%= booking.meet_location %><br>
 <%= booking.summary %><br>
 <%= link_to "Cancel Booking", cancel_booking_path(booking), :method => :delete, :confirm => "You sure?" %><br><br>
-<%= link_to "View details", show_booking_path(booking), controller: 'booking', id: booking.id %>
+<i class="fa fa-info-circle" aria-hidden="true"></i><%= link_to "View details", show_booking_path(booking), controller: 'booking', id: booking.id %>
 

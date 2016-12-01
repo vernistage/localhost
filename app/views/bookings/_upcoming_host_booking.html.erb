@@ -4,6 +4,6 @@
 <%= booking.summary %><br>
 <%= link_to "Edit Bookings", edit_booking_path(id: booking.id)%><br>
 <%= link_to "Cancel Booking", cancel_booking_path(booking), :method => :delete, :confirm => "You sure?" %><br>
-<%= link_to "View details", controller: "bookings", action: "show", id: booking %>
+<i class="fa fa-info-circle" aria-hidden="true"></i><%= link_to "View details", controller: "bookings", action: "show", id: booking %>
 
 

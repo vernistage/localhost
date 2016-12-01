@@ -1,18 +1,43 @@
 <% @booking.geocode %>
 
-<div class="ui segment">
-  Host: <%= @host.name %><br>
-  Guest: <%= @guest.name %><br>
-  Details: <%= @booking.summary %><br>
-  Meet point specified by host: <div id="address"><%= @booking.meet_location %></div><br><br>
-  <div id="longitude"><%= @booking.longitude %></div>
-  <div id="latitude"><%= @booking.latitude %></div>
-
-  <h2><%= link_to "Back", controller: "users", action: "show", id: current_user %></h2>
-  <br>
-  <br>
+<div id="single-booking" class="ui padded compact segment">
+<h2 class="ui dividing header">Your Booking</h2>
+  <div class="ui huge list">
+    <div class="item">
+      <div class="content">
+        <%= image_tag(("#{@host.avatar}"), :class => "ui avatar image") %>
+         Host: <%= @host.name %>
+      </div>
+    </div>
+    <div class="item">
+      <div class="content">
+        <%= image_tag(("#{@guest.avatar}"), :class => "ui avatar image") %>
+          Guest: <%= @guest.name %>
+      </div>
+    </div>
+  </div>
+  <div class="ui fitted divider"></div>
+  <div class="ui list">
+    <div class="item">
+      <div class="content">
+        <i class="fa fa-info-circle" aria-hidden="true"></i>
+          Details: <%= @booking.summary %>
+      </div>
+    </div>
+    <div class="item">
+      <div class="content">
+        <i class="fa fa-map-marker"></i>
+          Meet point specified by host:<div id="address"> <%= @booking.meet_location %></div>
+      </div>
+    </div>
+  </div>
   <!-- Google Maps Begin -->
   <div id="map"></div>
+  <div id="longitude"><%= @booking.longitude %></div>
+  <div id="latitude"><%= @booking.latitude %></div>
+  <br>
+  <br>
+  <button class="ui compact right floated button"><%= link_to "Back", controller: "users", action: "show", id: current_user %></button>
 </div>
 
 <script>
@@ -31,7 +56,7 @@
       title: 'MARKER'
     });
     var infowindow = new google.maps.InfoWindow({
-      content: "I have more to say"
+      content: document.getElementById('address').innerHTML
     })
     marker.addListener('click', function(){
       infowindow.open(map, marker);

@@ -31,12 +31,15 @@ body{
 
 #categories-view{
   background-color: rgba(255,255,255, 0.6);
-  /*width: 1050px;*/
 }
 
 #map{
   width: 600px;
   height: 400px;
+}
+
+#address{
+  padding-left: 45px;
 }
 
 #longitude{
@@ -68,6 +71,18 @@ body{
 
 .fa-address-card-o{
   padding-right: 20px;
+}
+
+.fa-info-circle{
+  padding-right: 28px;
+}
+
+.fa-user{
+  padding-right: 10px;
+}
+
+.fa-map-marker{
+  padding-right: 31px;
 }
 
 #edit-form{
@@ -102,7 +117,7 @@ h1#main-header{
   width: 342px;
 /*  border: 2px solid rgb(248, 248, 248);*/
   font-size: 40px;
-  background-color: rgb(248, 248, 248);
+/*  background-color: rgb(248, 248, 248);*/
 }
 
 select#location{
@@ -244,15 +259,23 @@ div.user-bio-block {
 
 
 /*Semantic UI Overrides*/
+.ui.compact.buttons .button, .ui.compact.button a{
+  color: black;
+}
+
+#single-booking{
+  margin: auto;
+}
+
+#tiny-image{
+  height: auto;
+}
 .ui.menu {
   opacity: 85px;
 }
 #registration-form{
   padding: 2em;
   max-width: 700px !important;
-}
-
-.ui.text.container{
 }
 
 .ui.form .inline.fields .field > input, .ui.form .inline.fields .field > select, .ui.form .inline.field > input, .ui.form .inline.field > select{
@@ -302,9 +325,12 @@ h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child {
   margin-left: 1em;
   margin-right: 1em;
 }
+.ui.cards{
+  padding-bottom: 70px;
+}
 
 .ui.three.stackable.cards{
-  margin-left: 3em;
+  margin-left: 6em;
 }
 
 .container > .main {
