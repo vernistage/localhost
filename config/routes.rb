@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   get '/reviews/edit' => 'reviews#edit', :as => :edit_review
   put '/reviews/update' => 'reviews#update', :as => :update_review
   get 'users/:id/conversations/index' => 'conversations#index', :as => :conversations_index
+
+  get 'users/:id/conversations/create' => 'conversations#create', :as => :conversations_create
   get '/conversations/:id/show' => 'conversations#show', :as => :conversations_show
   get '/conversations/:id/show/polling' => 'conversations#polling', :as => :conversations_polling
   post '/conversations/:id/messages/create' => 'messages#create', :as => :messages_create
