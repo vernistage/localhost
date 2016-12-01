@@ -31,12 +31,15 @@ body{
 
 #categories-view{
   background-color: rgba(255,255,255, 0.6);
-  /*width: 1050px;*/
 }
 
 #map{
   width: 600px;
   height: 400px;
+}
+
+#address{
+  padding-left: 43px;
 }
 
 #longitude{
@@ -71,7 +74,15 @@ body{
 }
 
 .fa-info-circle{
+  padding-right: 28px;
+}
+
+.fa-user{
   padding-right: 10px;
+}
+
+.fa-map-marker{
+  padding-right: 31px;
 }
 
 #edit-form{
@@ -248,15 +259,23 @@ div.user-bio-block {
 
 
 /*Semantic UI Overrides*/
+.ui.compact.buttons .button, .ui.compact.button a{
+  color: black;
+}
+
+#single-booking{
+  margin: auto;
+}
+
+#tiny-image{
+  height: auto;
+}
 .ui.menu {
   opacity: 85px;
 }
 #registration-form{
   padding: 2em;
   max-width: 700px !important;
-}
-
-.ui.text.container{
 }
 
 .ui.form .inline.fields .field > input, .ui.form .inline.fields .field > select, .ui.form .inline.field > input, .ui.form .inline.field > select{

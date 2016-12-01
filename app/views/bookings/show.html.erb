@@ -1,43 +1,43 @@
 <% @booking.geocode %>
 
-<div class="ui padded segment">
-  <div class="ui list">
+<div id="single-booking" class="ui padded compact segment">
+<h2 class="ui dividing header">Your Booking</h2>
+  <div class="ui huge list">
     <div class="item">
       <div class="content">
-        <i class="fa fa-user" aria-hidden="true"></i>
-          Host: <%= @host.name %>
+        <%= image_tag(("#{@host.avatar}"), :class => "ui avatar image") %>
+         Host: <%= @host.name %>
       </div>
     </div>
     <div class="item">
       <div class="content">
-        <i class="fa fa-user-o" aria-hidden="true"></i>
+        <%= image_tag(("#{@guest.avatar}"), :class => "ui avatar image") %>
           Guest: <%= @guest.name %>
       </div>
     </div>
+  </div>
+  <div class="ui fitted divider"></div>
+  <div class="ui list">
     <div class="item">
       <div class="content">
         <i class="fa fa-info-circle" aria-hidden="true"></i>
-          Details:<%= @booking.summary %>
+          Details: <%= @booking.summary %>
       </div>
     </div>
     <div class="item">
       <div class="content">
-        <i class="marker icon"></i>
-          <div id="address">
-            Meet point specified by host: <%= @booking.meet_location %>
-          </div>
+        <i class="fa fa-map-marker"></i>
+          Meet point specified by host:<div id="address"> <%= @booking.meet_location %></div>
       </div>
     </div>
   </div>
-
-<div id="longitude"><%= @booking.longitude %></div>
-<div id="latitude"><%= @booking.latitude %></div>
-
-  <h2><%= link_to "Back", controller: "users", action: "show", id: current_user %></h2>
-  <br>
-  <br>
   <!-- Google Maps Begin -->
   <div id="map"></div>
+  <div id="longitude"><%= @booking.longitude %></div>
+  <div id="latitude"><%= @booking.latitude %></div>
+  <br>
+  <br>
+  <button class="ui compact right floated button"><%= link_to "Back", controller: "users", action: "show", id: current_user %></button>
 </div>
 
 <script>
