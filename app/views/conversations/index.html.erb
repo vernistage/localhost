@@ -1,8 +1,11 @@
+<h2>test</h2>
+
 <% @user.conversations.each do |convo| %>
 <div class="conversations-list">
   <div class="conversation">
     <%= link_to convo.guest.email, conversations_show_path(convo)  %>
   </div>
 </div>
+
 
 <% end %>
