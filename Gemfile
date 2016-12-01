@@ -22,13 +22,13 @@ gem 'jbuilder', '~> 2.5'
 gem 'dotenv-rails'
 gem 'json'
 gem 'devise'
-gem 'paperclip'
+gem 'paperclip', :git=> 'https://github.com/thoughtbot/paperclip', :ref => '523bd46c768226893f23889079a7aa9c73b57d68'
 gem 'ratyrate'
 # brew install imagemagick
 # for our icons
 gem "font-awesome-rails"
 gem 'geocoder'
-gem 'aws-sdk', '<2.0'
+gem 'aws-sdk', '< 2.0'
 
 group :development, :test do
   gem 'rspec-rails'
