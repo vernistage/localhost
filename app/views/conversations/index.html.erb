@@ -1,11 +1,17 @@
 <h2>test</h2>
-<% user_convos = (Conversation.where(guest_id: @user.id) + Conversation.where(host_id: @user.id) %>
-<% @user.conversations.each do |convo| %>
-<div class="conversations-list">
-  <div class="conversation">
-    <%= link_to convo.guest.email, conversations_show_path(convo)  %>
+<% guest_convos = Conversation.where(guest_id: @user.id) %>
+<% host_convos = Conversation.where(host_id: @user.id) %>
+<% host_convos.each do |convo| %>
+  <div class="conversations-list">
+    <div class="conversation">
+      <%= link_to convo.guest.email, conversations_show_path(convo)  %>
+    </div>
   </div>
-</div>
-
-
+<% end %>
+<% guest_convos.each do |convo| %>
+  <div class="conversations-list">
+    <div class="conversation">
+      <%= link_to convo.host.email, conversations_show_path(convo)  %>
+    </div>
+  </div>
 <% end %>
