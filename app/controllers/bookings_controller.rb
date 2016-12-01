@@ -39,7 +39,7 @@ class BookingsController < ApplicationController
     end_time = end_time.utc + times[session[:location]]
 
     b = Booking.find(params[:booking][:id])
-    b.update(params.require(:booking).permit(:id, :guest_id, :host_id, :meet_location, :start_time, :end_time, :summary))
+    b.update(params.require(:booking).permit(:id, :guest_id, :host_id, :meet_location, :start_time, :end_time, :summary, :latitude, :longitude))
     b.save
     redirect_to users_show_path(current_user)
   end

@@ -1,7 +1,5 @@
-<% if booking.end_time < Time.now %>
-  <% flag = false %>
-  <%= User.find(booking.guest_id).email %><br>
-  <%= (booking.start_time - times[session[:location]]).to_s[0..-4] %><br>
-  <%= booking.meet_location %><br>
-  <%= booking.summary %><br><br>
-<% end %>
+<% flag = false %>
+<%= User.find(booking.guest_id).email %><br>
+<%= (booking.start_time - times[session[:location]]).to_s[0..-4] %><br>
+<%= booking.meet_location %><br>
+<%= booking.summary %><br><br>

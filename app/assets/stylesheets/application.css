@@ -39,6 +39,14 @@ body{
   height: 400px;
 }
 
+#longitude{
+  display: none;
+}
+
+#latitude {
+  display: none;
+}
+
 .image{
   background-position: center center;
   height: 200px;

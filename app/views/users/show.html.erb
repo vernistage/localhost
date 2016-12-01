@@ -21,9 +21,11 @@
       <div class="ui segments">
         <h5>Upcoming bookings</h5>
         <% @user.host_bookings.each do |booking| %>
-          <div class="ui secondary segment">
-            <%= render partial: "bookings/upcoming_host_booking", locals: {booking: booking, times: times} %>
-          </div>
+          <% if booking.end_time > Time.now %>
+            <div class="ui secondary segment">
+              <%= render partial: "bookings/upcoming_host_booking", locals: {booking: booking, times: times} %>
+            </div>
+          <% end %>
         <% end %>
       </div>
       <!-- Begin completed host bookings-->
@@ -31,12 +33,11 @@
         <h5>Completed bookings</h5>
         <% flag = true %>
         <% @user.host_bookings.each do |booking| %>
-          <div class="ui secondary segment">
-            <%= render partial: "bookings/completed_host_booking", locals: {booking: booking, flag: flag} %>
-            <% if flag == true %>
-              <em>None.</em>
-            <% end %>
-          </div>
+          <% if booking.end_time < Time.now %>
+            <div class="ui secondary segment">
+              <%= render partial: "bookings/completed_host_booking", locals: {booking: booking, times: times, flag: flag} %>
+            </div>
+          <% end %>
         <% end %>
       </div>
     <% end %>
@@ -56,18 +57,22 @@
       <div class="ui segments">
         <h4>Upcoming Trips</h4>
         <% @user.guest_bookings.each do |booking| %>
-          <div class="ui secondary segment">
-            <%= render partial: "bookings/upcoming_guest_booking", locals: {booking: booking} %>
-          </div>
+          <% if booking.start_time > Time.now %>
+            <div class="ui secondary segment">
+              <%= render partial: "bookings/upcoming_guest_booking", locals: {booking: booking, times:times} %>
+            </div>
+          <% end %>
         <% end %>
       </div>
       <!-- Begin Guest Completed Trips -->
       <div class="ui segments">
       <h4>Completed Trips</h4>
         <% @user.guest_bookings.each do |booking| %>
-          <div class="ui secondary segment">
-            <%= render partial: "bookings/completed_guest_booking", locals: {booking: booking} %>
-          </div>
+          <% if booking.end_time < Time.now %>
+            <div class="ui secondary segment">
+              <%= render partial: "bookings/completed_guest_booking", locals: {booking: booking, times:times} %>
+            </div>
+          <% end %>
         <% end %>
       </div>
       <!-- Begin Guest Reviews-->
@@ -75,7 +80,7 @@
         <h4>Your Reviews</h4>
         <% @user.guest_bookings.each do |booking| %>
           <div class="ui secondary segment">
-            <%= render partial: "reviews/review_view", locals: {booking: booking} %>
+            <%= render partial: "reviews/review_view", locals: {booking: booking, times:times} %>
           </div>
         <% end %>
       </div>
