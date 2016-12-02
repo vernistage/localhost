@@ -64,39 +64,39 @@ tanner.update(avatar: img)
 
 
 # GUESTS ===============================================================================================
-guest1 = User.create!(email: "guest1@guest1.com", password: "password", name: "guest1", homebase: "Austin", host: false, bio: "tunicary refreshment agronomist dithecal infieldsman pollinodial scaremonger counterhypothesis dogedom exceptionless rockward Lopezia Rhodesian synizesis applewoman metralgia slave Arctogaea sinistrorsally insee stamina isotropic queenroot associatively")
+guest1 = User.create!(email: "jamie@gmail.com", password: "password", name: "Jamie", homebase: "Austin", host: false, bio: "tunicary refreshment agronomist dithecal infieldsman pollinodial scaremonger counterhypothesis dogedom exceptionless rockward Lopezia Rhodesian synizesis applewoman metralgia slave Arctogaea sinistrorsally insee stamina isotropic queenroot associatively")
 img = File.open(File.join(Rails.root, '/public/images/seed/img16.jpg'))
 guest1.update(avatar: img)
 
-guest2 = User.create!(email: "guest2@guest2.com", password: "password", name: "guest2", homebase: "Austin", host: false, bio: "unshriveled metempirical Hellenizer anastasis expedited uncatechized osphradial interaxillary heroistic nondivergent crannage epigenesis dollface have lobed bestride hendecatoic expenditor molecast payed upwheel Buri spratter oscheolith")
+guest2 = User.create!(email: "morgan2@gmail.com", password: "password", name: "Morgan", homebase: "Austin", host: false, bio: "unshriveled metempirical Hellenizer anastasis expedited uncatechized osphradial interaxillary heroistic nondivergent crannage epigenesis dollface have lobed bestride hendecatoic expenditor molecast payed upwheel Buri spratter oscheolith")
 img = File.open(File.join(Rails.root, '/public/images/seed/img17.jpg'))
 guest2.update(avatar: img)
 
-guest3 = User.create!(email: "guest3@guest3.com", password: "password", name: "guest3", homebase: "Austin", host: false, bio: "scrappy overtime moonraker unspited technology pallidiflorous asquint scarecrowish polymathy Caunos Pasitelean sagely Zhmud uncapable librarianship vacationist antigambling serpenticidal planariform ultramelancholy calendry preponderating contributable Lepilemur")
+guest3 = User.create!(email: "lee@gmail.com", password: "password", name: "Lee", homebase: "Austin", host: false, bio: "scrappy overtime moonraker unspited technology pallidiflorous asquint scarecrowish polymathy Caunos Pasitelean sagely Zhmud uncapable librarianship vacationist antigambling serpenticidal planariform ultramelancholy calendry preponderating contributable Lepilemur")
 img = File.open(File.join(Rails.root, '/public/images/seed/img18.jpg'))
 guest3.update(avatar: img)
 
-guest4 = User.create!(email: "guest4@guest4.com", password: "password", name: "guest4", homebase: "Seattle", host: false, bio: "Entomophthorales cacumination Arizonan transcending ophthalmoscopic tenaille shatterer hypotypical dromos poetdom intraplant indefensible skewy overhelpful overoblige connubially Elizabethanize doggerelize dashboard Aecidiomycetes basidiospore Ebionism antejentacular unimpurpled")
+guest4 = User.create!(email: "riley4@gmail.com", password: "password", name: "Riley", homebase: "Austin", host: false, bio: "Entomophthorales cacumination Arizonan transcending ophthalmoscopic tenaille shatterer hypotypical dromos poetdom intraplant indefensible skewy overhelpful overoblige connubially Elizabethanize doggerelize dashboard Aecidiomycetes basidiospore Ebionism antejentacular unimpurpled")
 img = File.open(File.join(Rails.root, '/public/images/seed/img19.jpg'))
 guest4.update(avatar: img)
 
-guest5 = User.create!(email: "guest5@guest5.com", password: "password", name: "guest5", homebase: "Seattle", host: false, bio: "unrepented echelette foregirth suburbicarian chunari pulmotracheary aleuromancy abjectedness orifacial calciform downweigh hexone unaddress idiosyncratic intrication Monbuttu postpubic creche credensive letterleaf singally Hurrian preconcurrence debilitative")
+guest5 = User.create!(email: "taylor@gmail.com", password: "password", name: "Taylor", homebase: "Austin", host: false, bio: "unrepented echelette foregirth suburbicarian chunari pulmotracheary aleuromancy abjectedness orifacial calciform downweigh hexone unaddress idiosyncratic intrication Monbuttu postpubic creche credensive letterleaf singally Hurrian preconcurrence debilitative")
 img = File.open(File.join(Rails.root, '/public/images/seed/img20.jpg'))
 guest5.update(avatar: img)
 
-guest6 = User.create!(email: "guest6@guest6.com", password: "password", name: "guest6", homebase: "Seattle", host: false, bio: "ekacaesium assonance Globulariaceae mosette locomote niepa autopsychorhythmia countervairy appendant paduasoy unconsistent Tigrai downcomer pukeko mentonniere Cassis archaeostoma fiefdom saggy unsceptre inamovable redeploy nightshade vindicably")
+guest6 = User.create!(email: "logan@gmail.com", password: "password", name: "Logan", homebase: "Seattle", host: false, bio: "ekacaesium assonance Globulariaceae mosette locomote niepa autopsychorhythmia countervairy appendant paduasoy unconsistent Tigrai downcomer pukeko mentonniere Cassis archaeostoma fiefdom saggy unsceptre inamovable redeploy nightshade vindicably")
 img = File.open(File.join(Rails.root, '/public/images/seed/img21.jpg'))
 guest6.update(avatar: img)
 
-guest7 = User.create!(email: "guest7@guest7.com", password: "password", name: "guest7", homebase: "Chicago", host: false, bio: "intraosseous Helioporidae overslur panegyrical rexen hypertrophous merchanthood pearler neologistic nonsaturated Mithraic acescency Osiandrian pieridine kymographic gasterosteid lochiopyra Daucus lomboy odiometer angst laparotomize interfraternal Deuteronomic")
+guest7 = User.create!(email: "cameron@gmail.com", password: "password", name: "Cameron", homebase: "Seattle", host: false, bio: "intraosseous Helioporidae overslur panegyrical rexen hypertrophous merchanthood pearler neologistic nonsaturated Mithraic acescency Osiandrian pieridine kymographic gasterosteid lochiopyra Daucus lomboy odiometer angst laparotomize interfraternal Deuteronomic")
 img = File.open(File.join(Rails.root, '/public/images/seed/img22.jpg'))
 guest7.update(avatar: img)
 
-guest8 = User.create!(email: "guest8@guest8.com", password: "password", name: "guest8", homebase: "Chicago", host: false, bio: "anthropoid ortiga multigraph antiphonetic twinable arbacin stylize financier underclothe vanner myristicaceous prorealist villager breekless Baconic judicial mycetoma unincensed costellate Hattism anesthesiology myringomycosis centripetal epichordal")
+guest8 = User.create!(email: "mackenzie@gmail.com", password: "password", name: "MacKenzie", homebase: "Seattle", host: false, bio: "anthropoid ortiga multigraph antiphonetic twinable arbacin stylize financier underclothe vanner myristicaceous prorealist villager breekless Baconic judicial mycetoma unincensed costellate Hattism anesthesiology myringomycosis centripetal epichordal")
 img = File.open(File.join(Rails.root, '/public/images/seed/img23.jpg'))
 guest8.update(avatar: img)
 
-guest9 = User.create!(email: "guest9@guest9.com", password: "password", name: "guest9", homebase: "Chicago", host: false, bio: "troveless paleovolcanic reappease Atlantica epinephrine stuffiness appendicectomy parahormone ophiomorphic Elapidae negatory menhir superius fluorenyl morate homoousious kittlepins lycanthropic rillette subdepressed catfoot acetylize Binitarianism polyschematic")
+guest9 = User.create!(email: "sydney@gmail.com", password: "password", name: "Sydney", homebase: "Seattle", host: false, bio: "troveless paleovolcanic reappease Atlantica epinephrine stuffiness appendicectomy parahormone ophiomorphic Elapidae negatory menhir superius fluorenyl morate homoousious kittlepins lycanthropic rillette subdepressed catfoot acetylize Binitarianism polyschematic")
 img = File.open(File.join(Rails.root, '/public/images/seed/img24.jpg'))
 guest9.update(avatar: img)
 
