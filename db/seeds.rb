@@ -100,13 +100,6 @@ guest9 = User.create!(email: "guest9@guest9.com", password: "password", name: "g
 img = File.open(File.join(Rails.root, '/public/images/seed/img24.jpg'))
 guest9.update(avatar: img)
 
-guest10 = User.create!(email: "guest10@guest10.com", password: "password", name: "guest10", homebase: "New York", host: false, bio: "paratuberculin caneology unbefittingness boomorah underway unsmirched khanum densher asperous portway hexacid stalagmitical resee poolwort aune sulfarsenide ursiform pleadingness Acmaeidae constricted unelaborate adeptship averse volumometer")
-guest11 = User.create!(email: "guest11@guest11.com", password: "password", name: "guest11", homebase: "New York", host: false, bio: "Echites uncomputably kingless vibratingly Golo colitoxemia infrigidative halsfang atemporal unwelcome pinnal spermatophorous headsill isomenthone mijl megacoulomb remontoir predecessorship attently fishpound Eudromias Primianist platanist strictly")
-guest12 = User.create!(email: "guest12@guest12.com", password: "password", name: "guest12", homebase: "New York", host: false, bio: "menoxenia calorize clobberer Acorus predepart endosmosis sphenocephalia unwrathfully Julius spurwort vertebromammary distancy foldcourse Gastornithidae crotonate Hypericaceae uncialize softhead postdepressive vermilionize waddent dispossessor glaucine formin")
-guest13 = User.create!(email: "guest13@guest13.com", password: "password", name: "guest13", homebase: "Los Angeles", host: false, bio: "nonoverhead Ammi Delesseriaceae Hadassah preliterature dolomization upcatch unheaviness bastard betterer gabardine noncollection luigino autocrat larklike delocalization Antheraea jinshang thyreotomy ctenoid trussmaking Eburna mesocoelic Vermetidae")
-guest14 = User.create!(email: "guest14@guest14.com", password: "password", name: "guest14", homebase: "Los Angeles", host: false, bio: "herbaria pentecostal excitancy pulvination reinvention amylene perplexity Recurvirostra counterdifficulty spirketing lapillus superirritability incretion Ruellia monodramatic churruck rentage antimagistratical maltster macaronicism polymetallism nontechnological eucalyptole irreligiosity")
-guest15 = User.create!(email: "guest15@guest15.com", password: "password", name: "guest15", homebase: "Los Angeles", host: false, bio: "styfziekte unaccomplishable Idaho codelight jaildom chatelain imu phlebopexy recently dearthfu gestical splanchnoptosis underjailer absquatulate achill obtention underproduction logology binate indan carpet albugineous hexoic disguiseless")
-
 
 # Categories ===============================================================================================
 Category.create!(title: "Art", description: "Local art tours", image: "/images/art.jpg") #category_id = 1
@@ -339,22 +332,39 @@ Category.create!(title: "History", description: "Pay homage to the past", image:
   #Austin Bookings
     Booking.create!(guest_id: 16, host_id: 1, summary: "A tour of the finest Art exhibits in Austin.", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "700 Congress Ave, Austin, TX 78701")
     Booking.create!(guest_id: 16, host_id: 2, summary: "We are going to be enjoying the infamous 6th street.", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "715 W 6th St, Austin, TX 78701")
-    Booking.create!(guest_id: 16, host_id: 3, summary: "Only the punkest of rock gets into these venues.", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "305 E 5th Austin, TX 78701")
+    Booking.create!(guest_id: 16, host_id: 3, summary: "Only the punkest of rock plays in these venues", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "305 E 5th Austin, TX 78701")
     Booking.create!(guest_id: 17, host_id: 4, summary: "A tour of some of the hidden gems in Austin that only the most experienced Austinites know of.", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "3825 Lake Austin Blvd, Austin, TX 78703")
     Booking.create!(guest_id: 17, host_id: 5, summary: "Let's party with some UT football!!!", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "405 E 23rd St, Austin, TX 78712")
     Booking.create!(guest_id: 17, host_id: 6, summary: "The best Psychedelic Rock in Austin, hands down!", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "103 E 5th St B, Austin, TX 78701")
     Booking.create!(guest_id: 18, host_id: 7, summary: "See all the best gay spots in Austin.", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "404 Colorado St, Austin, TX 78701" )
     Booking.create!(guest_id: 18, host_id: 8, summary: "Tour of the Capitol building, grounds, and a long walk down the infamous Congress Ave.", meet_location: "1100 Congress Ave, Austin, TX 78701", start_time: "2016-11-30 18:30:00 UTC", end_time: "2016-12-01 20:30:00 UTC")
-    Booking.create!(guest_id: 19, host_id: 1, summary: "Checking out the folk festival.", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "1708 Houston St, Austin, TX 78756")
+    Booking.create!(guest_id: 18, host_id: 1, summary: "Checking out the folk festival.", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "1708 Houston St, Austin, TX 78756")
     Booking.create!(guest_id: 19, host_id: 2, summary: "We are going to be hiking and visiting some lesser known swimming holes.", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "2100 Barton Springs Rd, Austin, TX 78746")
     Booking.create!(guest_id: 19, host_id: 3, summary: "Going to checkout unique, hand-crafted cocktails", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "1816 E 6th St, Austin, TX 78702")
-    Booking.create!(guest_id: 20, host_id: 4, summary: "Front row, VIP experience at Austin Fashion week!", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "2nd Street District, 310 W Willie Nelson Blvd, Austin, TX 78701")
+    Booking.create!(guest_id: 19, host_id: 4, summary: "Front row, VIP experience at Austin Fashion week!", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "2nd Street District, 310 W Willie Nelson Blvd, Austin, TX 78701")
     Booking.create!(guest_id: 20, host_id: 5, summary: "Let's party with some UT football!!!", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "405 E 23rd St, Austin, TX 78712")
-    Booking.create!(guest_id: 21, host_id: 6, summary: "The best Psychedelic Rock in Austin, hands down!", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "103 E 5th St B, Austin, TX 78701")
-    Booking.create!(guest_id: 21, host_id: 7, summary: "See all the best gay spots in Austin.", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "404 Colorado St, Austin, TX 78701" )
-    Booking.create!(guest_id: 21, host_id: 8, summary: "Tour of the Capitol building, grounds, and a long walk down the infamous Congress Ave.", meet_location: "1100 Congress Ave, Austin, TX 78701", start_time: "2016-11-30 18:30:00 UTC", end_time: "2016-12-01 20:30:00 UTC")
+    Booking.create!(guest_id: 20, host_id: 6, summary: "The best Psychedelic Rock in Austin, hands down!", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "103 E 5th St B, Austin, TX 78701")
+    Booking.create!(guest_id: 20, host_id: 7, summary: "See all the best gay spots in Austin.", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "404 Colorado St, Austin, TX 78701" )
+    Booking.create!(guest_id: 20, host_id: 8, summary: "Tour of the Capitol building, grounds, and a long walk down the infamous Congress Ave.", meet_location: "1100 Congress Ave, Austin, TX 78701", start_time: "2016-11-30 18:30:00 UTC", end_time: "2016-12-01 20:30:00 UTC")
 
 #Seattle Bookings
+
+    Booking.create!(guest_id: 21, host_id: 9, summary: "A tour of the finest Art exhibits in Seattle.", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "700 Congress Ave, Austin, TX 78701")
+    Booking.create!(guest_id: 21, host_id: 10, summary: "We are going to be enjoying chill PNW bars.", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "715 W 6th St, Austin, TX 78701")
+    Booking.create!(guest_id: 21, host_id: 11, summary: "Some of the heaviest metal around", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "305 E 5th Austin, TX 78701")
+    Booking.create!(guest_id: 21, host_id: 12, summary: "A tour of some of the hidden gems in Seattle that only the most experienced Seattleite know of.", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "3825 Lake Austin Blvd, Austin, TX 78703")
+    Booking.create!(guest_id: 22, host_id: 13, summary: "A trip to an Asian-Pacific art exhibit, some of the most beautiful pieces around.", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "405 E 23rd St, Austin, TX 78712")
+    Booking.create!(guest_id: 22, host_id: 14, summary: "Mountain biking trips, beginner to experts.", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "103 E 5th St B, Austin, TX 78701")
+    Booking.create!(guest_id: 22, host_id: 15, summary: "Party down with the University of Washington!!", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "404 Colorado St, Austin, TX 78701" )
+    Booking.create!(guest_id: 22, host_id: 9, summary: "Enjoying the Bumbershoot festival like a pro!!", meet_location: "1100 Congress Ave, Austin, TX 78701", start_time: "2016-11-30 18:30:00 UTC", end_time: "2016-12-01 20:30:00 UTC")
+    Booking.create!(guest_id: 23, host_id: 10, summary: "Tour of the Capitol building.", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "1708 Houston St, Austin, TX 78756")
+    Booking.create!(guest_id: 23, host_id: 11, summary: "How would you like to enjoy some Great American Cuisine??", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "2100 Barton Springs Rd, Austin, TX 78746")
+    Booking.create!(guest_id: 23, host_id: 12, summary: "Going to checkout unique, hand-crafted cocktails", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "1816 E 6th St, Austin, TX 78702")
+    Booking.create!(guest_id: 23, host_id: 13, summary: "Shop Seattle!", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "2nd Street District, 310 W Willie Nelson Blvd, Austin, TX 78701")
+    Booking.create!(guest_id: 24, host_id: 14, summary: "Radical Snowmobile tours!", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "405 E 23rd St, Austin, TX 78712")
+    Booking.create!(guest_id: 24, host_id: 15, summary: "Experience Seattle: Pike Place", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "103 E 5th St B, Austin, TX 78701")
+    Booking.create!(guest_id: 24, host_id: 9, summary: "See all the best gay spots in Seattle.", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "404 Colorado St, Austin, TX 78701" )
+    Booking.create!(guest_id: 24, host_id: 10, summary: "Washington state history tours.", meet_location: "1100 Congress Ave, Austin, TX 78701", start_time: "2016-11-30 18:30:00 UTC", end_time: "2016-12-01 20:30:00 UTC")
 
   #Reviews ===============================================================================================
 #Austin Reviews
@@ -370,9 +380,26 @@ Category.create!(title: "History", description: "Pay homage to the past", image:
     Review.create!(booking_id: 10, body: "Swanky bar. Loved it!", rating: 5)
     Review.create!(booking_id: 11, body: "Beautiful event and so thankful I went!", rating: 5)
     Review.create!(booking_id: 12, body: "Loved the football game, and my team won. Fun time!", rating: 5)
-    Review.create!(booking_id: 13, body: "Football game was amazing. Parking took forever", rating: 4)
+    Review.create!(booking_id: 13, body: "Football game was amazing. Parking took forever.", rating: 4)
     Review.create!(booking_id: 14, body: "It was alright. Kinda weird for my tastes.", rating: 3)
     Review.create!(booking_id: 15, body: "Cheer up Charlie's was cool. Thanks for taking me!", rating: 5)
     Review.create!(booking_id: 16, body: "Really fascinating, but tour was a little longer than I thought it  would be.", rating: 3)
 
 #Seattle Reviews
+
+    Review.create!(booking_id: 17, body: "AWESOME! I wish I could give you 10 stars!", rating: 5)
+    Review.create!(booking_id: 18, body: "A nice view of Seattle!", rating: 4)
+    Review.create!(booking_id: 19, body: "Friendly host. Fun atmosphere.", rating: 4)
+    Review.create!(booking_id: 20, body: "I already want to go back!", rating: 5)
+    Review.create!(booking_id: 21, body: "A little crowded for my tastes, but overall pretty good. Host was very helpful.", rating: 4)
+    Review.create!(booking_id: 22, body: "Beautiful ride yesterday! Definitely recommend", rating: 5)
+    Review.create!(booking_id: 23, body: "It's always weird traveling to a new city and hanging out with a new school. A lot of fun though.", rating: 4)
+    Review.create!(booking_id: 24, body: "It was raining.", rating: 2)
+    Review.create!(booking_id: 25, body: "Host was friendly, but the experience was a little lacking.", rating: 3)
+    Review.create!(booking_id: 26, body: "Great food. Loved it!", rating: 5)
+    Review.create!(booking_id: 27, body: "Beautiful decor and so thankful I went!", rating: 5)
+    Review.create!(booking_id: 28, body: "Loved having a friend to shop with! I can call you a friend now, right?", rating: 5)
+    Review.create!(booking_id: 29, body: "Snowmobiling was exhilarating, but it was just too cold. ", rating: 4)
+    Review.create!(booking_id: 30, body: "It was alright. Not really my scene.", rating: 3)
+    Review.create!(booking_id: 31, body: "Great time. Lots of new places to visit next time I'm in town ;)", rating: 5)
+    Review.create!(booking_id: 32, body: "Really fascinating, but tour was a little longer than I thought it  would be.", rating: 3)
