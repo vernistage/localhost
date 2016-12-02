@@ -335,6 +335,8 @@ Category.create!(title: "History", description: "Pay homage to the past", image:
 
 
   #Bookings ===============================================================================================
+
+  #Austin Bookings
     Booking.create!(guest_id: 16, host_id: 1, summary: "A tour of the finest Art exhibits in Austin.", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "700 Congress Ave, Austin, TX 78701")
     Booking.create!(guest_id: 16, host_id: 2, summary: "We are going to be enjoying the infamous 6th street.", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "715 W 6th St, Austin, TX 78701")
     Booking.create!(guest_id: 16, host_id: 3, summary: "Only the punkest of rock gets into these venues.", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "305 E 5th Austin, TX 78701")
@@ -343,14 +345,34 @@ Category.create!(title: "History", description: "Pay homage to the past", image:
     Booking.create!(guest_id: 17, host_id: 6, summary: "The best Psychedelic Rock in Austin, hands down!", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "103 E 5th St B, Austin, TX 78701")
     Booking.create!(guest_id: 18, host_id: 7, summary: "See all the best gay spots in Austin.", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "404 Colorado St, Austin, TX 78701" )
     Booking.create!(guest_id: 18, host_id: 8, summary: "Tour of the Capitol building, grounds, and a long walk down the infamous Congress Ave.", meet_location: "1100 Congress Ave, Austin, TX 78701", start_time: "2016-11-30 18:30:00 UTC", end_time: "2016-12-01 20:30:00 UTC")
+    Booking.create!(guest_id: 19, host_id: 1, summary: "Checking out the folk festival.", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "1708 Houston St, Austin, TX 78756")
+    Booking.create!(guest_id: 19, host_id: 2, summary: "We are going to be hiking and visiting some lesser known swimming holes.", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "2100 Barton Springs Rd, Austin, TX 78746")
+    Booking.create!(guest_id: 19, host_id: 3, summary: "Going to checkout unique, hand-crafted cocktails", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "1816 E 6th St, Austin, TX 78702")
+    Booking.create!(guest_id: 20, host_id: 4, summary: "Front row, VIP experience at Austin Fashion week!", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "2nd Street District, 310 W Willie Nelson Blvd, Austin, TX 78701")
+    Booking.create!(guest_id: 20, host_id: 5, summary: "Let's party with some UT football!!!", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "405 E 23rd St, Austin, TX 78712")
+    Booking.create!(guest_id: 21, host_id: 6, summary: "The best Psychedelic Rock in Austin, hands down!", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "103 E 5th St B, Austin, TX 78701")
+    Booking.create!(guest_id: 21, host_id: 7, summary: "See all the best gay spots in Austin.", start_time: "2016-11-30 22:30:00 UTC", end_time: "2016-12-02 00:30:00 UTC", meet_location: "404 Colorado St, Austin, TX 78701" )
+    Booking.create!(guest_id: 21, host_id: 8, summary: "Tour of the Capitol building, grounds, and a long walk down the infamous Congress Ave.", meet_location: "1100 Congress Ave, Austin, TX 78701", start_time: "2016-11-30 18:30:00 UTC", end_time: "2016-12-01 20:30:00 UTC")
 
+#Seattle Bookings
 
   #Reviews ===============================================================================================
-    Review.create!(booking_id: 1, body: "phacoidoscope demethylate unangry cosmogoner predisposed capability rocta daimen tisane improbative nonsecret Stockbridge unworshipping sparklingness trochilus ideogrammic Huchnom severingly thunderheaded ascribable Kulanapan inone fumous benitoite", rating: 3)
-    Review.create!(booking_id: 1, body: "phacoidoscope demethylate unangry cosmogoner predisposed capability rocta daimen tisane improbative nonsecret Stockbridge unworshipping sparklingness trochilus ideogrammic Huchnom severingly thunderheaded ascribable Kulanapan inone fumous benitoite", rating: 3)
-    Review.create!(booking_id: 1, body: "phacoidoscope demethylate unangry cosmogoner predisposed capability rocta daimen tisane improbative nonsecret Stockbridge unworshipping sparklingness trochilus ideogrammic Huchnom severingly thunderheaded ascribable Kulanapan inone fumous benitoite", rating: 3)
-    Review.create!(booking_id: 1, body: "phacoidoscope demethylate unangry cosmogoner predisposed capability rocta daimen tisane improbative nonsecret Stockbridge unworshipping sparklingness trochilus ideogrammic Huchnom severingly thunderheaded ascribable Kulanapan inone fumous benitoite", rating: 3)
-    Review.create!(booking_id: 1, body: "phacoidoscope demethylate unangry cosmogoner predisposed capability rocta daimen tisane improbative nonsecret Stockbridge unworshipping sparklingness trochilus ideogrammic Huchnom severingly thunderheaded ascribable Kulanapan inone fumous benitoite", rating: 3)
-    Review.create!(booking_id: 1, body: "phacoidoscope demethylate unangry cosmogoner predisposed capability rocta daimen tisane improbative nonsecret Stockbridge unworshipping sparklingness trochilus ideogrammic Huchnom severingly thunderheaded ascribable Kulanapan inone fumous benitoite", rating: 3)
-    Review.create!(booking_id: 1, body: "phacoidoscope demethylate unangry cosmogoner predisposed capability rocta daimen tisane improbative nonsecret Stockbridge unworshipping sparklingness trochilus ideogrammic Huchnom severingly thunderheaded ascribable Kulanapan inone fumous benitoite", rating: 3)
-    Review.create!(booking_id: 1, body: "phacoidoscope demethylate unangry cosmogoner predisposed capability rocta daimen tisane improbative nonsecret Stockbridge unworshipping sparklingness trochilus ideogrammic Huchnom severingly thunderheaded ascribable Kulanapan inone fumous benitoite", rating: 3)
+#Austin Reviews
+    Review.create!(booking_id: 1, body: "Really enjoyed the visit. Thanks for everything!", rating: 5)
+    Review.create!(booking_id: 2, body: "It was a crazy night, but the tour kept me sane. Wouldn't go back to 6th, though!", rating: 3)
+    Review.create!(booking_id: 3, body: "Host drank too much and cut the tour short.", rating: 1)
+    Review.create!(booking_id: 4, body: "I cannot believe how beautiful Austin is! Host was amazing.", rating: 5)
+    Review.create!(booking_id: 5, body: "Football game was amazing. Parking took forever", rating: 4)
+    Review.create!(booking_id: 6, body: "Trippy. Thanks for the ride, man!", rating: 5)
+    Review.create!(booking_id: 7, body: "It's always weird traveling to a new city and trying to find fun and safe spaces for LGBT folk like myself. So thankful to host for picking out the best hot spots. Would have liked quieter bars.", rating: 4)
+    Review.create!(booking_id: 8, body: "Kind of boring, actually.", rating: 2)
+    Review.create!(booking_id: 9, body: "It was raining.", rating: 3)
+    Review.create!(booking_id: 10, body: "Swanky bar. Loved it!", rating: 5)
+    Review.create!(booking_id: 11, body: "Beautiful event and so thankful I went!", rating: 5)
+    Review.create!(booking_id: 12, body: "Loved the football game, and my team won. Fun time!", rating: 5)
+    Review.create!(booking_id: 13, body: "Football game was amazing. Parking took forever", rating: 4)
+    Review.create!(booking_id: 14, body: "It was alright. Kinda weird for my tastes.", rating: 3)
+    Review.create!(booking_id: 15, body: "Cheer up Charlie's was cool. Thanks for taking me!", rating: 5)
+    Review.create!(booking_id: 16, body: "Really fascinating, but tour was a little longer than I thought it  would be.", rating: 3)
+
+#Seattle Reviews
