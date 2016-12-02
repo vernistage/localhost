@@ -5,8 +5,13 @@ class ConversationsController < ApplicationController
   end
 
   def create
-    @conversation = Conversation.find_or_create_by(host_id: params[:id], guest_id: current_user.id)
-    redirect_to conversations_show_path(@conversation)
+
+    if current_user.blank?
+      redirect_to new_user_session_path
+    else
+      @conversation = Conversation.find_or_create_by(host_id: params[:id], guest_id: current_user.id)
+      redirect_to conversations_show_path(@conversation)
+    end
   end
 
   def show
