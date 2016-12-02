@@ -1,8 +1,17 @@
-<% @user.conversations.each do |convo| %>
-<div class="conversations-list">
-  <div class="conversation">
-    <%= link_to convo.guest.email, conversations_show_path(convo)  %>
-  </div>
-</div>
 
+<% guest_convos = Conversation.where(guest_id: @user.id) %>
+<% host_convos = Conversation.where(host_id: @user.id) %>
+<% host_convos.each do |convo| %>
+  <div class="conversations-list">
+    <div class="conversation">
+      <%= link_to convo.guest.email, conversations_show_path(convo)  %>
+    </div>
+  </div>
+<% end %>
+<% guest_convos.each do |convo| %>
+  <div class="conversations-list">
+    <div class="conversation">
+      <%= link_to convo.host.email, conversations_show_path(convo)  %>
+    </div>
+  </div>
 <% end %>
