@@ -53,6 +53,15 @@
           </div>
         <% end %>
       </div>
+      <!-- Begin Guest Reviews-->
+      <div class="ui segments">
+        <h4>Your Reviews</h4>
+        <% flag = true %>
+        <% @user.host_bookings.each do |booking| %>
+          <% flag = false %>
+            <%= render partial: "reviews/review_view", locals: {booking: booking, times:times} %>
+        <% end %>
+      </div>
     <% end %>
   <% end %>
   <!-- Begin Guest Trips -->
