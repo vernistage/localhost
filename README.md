@@ -2,7 +2,7 @@
 ___
 ### Dev Bootcamp Final Project, November 28 - December 3, 2016
 When traveling solo to a new destination, visitors can be overwhelmed by their new environment. LocalHost connects area hosts, who specialize in categories like 'Art', 'Music', or 'Food & Drink', to visitors looking for someone to show them around.
-
+___
 * ##On the landing page, select one of the cities from a drop-down list.
 
 ![Homepage View](readme-assets/home.png)
