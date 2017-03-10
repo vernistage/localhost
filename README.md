@@ -28,3 +28,9 @@ ___
 ##A host can see their bookings, reviews, and trips if they too want to travel!
 
 ![Single booking view](readme-assets/bookings-reviews.png)
+
+___
+### Team
+- [Matt McGee](https://github.com/m-mcgee)
+- [Sarah Dickerson](https://github.com/vernistage)
+- [Luke Westerfield](https://github.com/lsw0011)
