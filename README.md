@@ -31,6 +31,6 @@ ___
 
 ___
 ### Team
+- [Sarah Colby](https://github.com/vernistage)
 - [Matt McGee](https://github.com/m-mcgee)
-- [Sarah Dickerson](https://github.com/vernistage)
 - [Luke Westerfield](https://github.com/lsw0011)
